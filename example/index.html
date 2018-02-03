@@ -1,0 +1,22 @@
+<!doctype html>
+<link href="./index.css" rel="stylesheet" />
+<script src="./classnames.js"></script>
+
+<h1>Deterministic Style Sheets POF</h1>
+<main></main>
+
+<script>
+  Promise.all([
+    fetch('./a.css.json').then(c => c.json()),
+    fetch('./b.css.json').then(c => c.json()),
+    fetch('./d.css.json').then(c => c.json()),
+  ]).then(([a, b, d]) => {
+    console.log(a, b, d)
+     const root = document.querySelector('main')
+    root.innerHTML = `
+      <p class="${classnames(b.root, a.root)}">hello</p>
+      <p class="${classnames(a.root, b.root)}">hello</p>
+      <p class="${classnames()}">hello</p>
+    `
+  })
+</script>
