@@ -3,18 +3,14 @@
   "version": "0.1.0",
   "description": "Deterministic Style Sheets",
   "main": "index.js",
-  "scripts": {
-    "example": "rm -rf build && mkdir build && mkdir build/example && cp ./example/index.html src/classnames.js build/example && node src/index.js build/example `find ./example -type f -name '*.css'` && serve build/example"
-  },
+  "bin": { "dss": "bin/dss" },
   "keywords": [],
   "author": "Giuseppe Gurgone",
   "license": "BSD-3-Clause",
   "dependencies": {
     "just-flatten-it": "^2.0.0",
+    "loader-utils": "^1.1.0",
     "postcss": "^6.0.17",
     "postcss-js": "^1.0.1"
-  },
-  "devDependencies": {
-    "serve": "^6.4.9"
   }
 }

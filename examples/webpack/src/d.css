@@ -1,0 +1,5 @@
+@supports (color: yellow) {
+  .root {
+    color: yellow;
+  }
+}

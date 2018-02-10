@@ -1,10 +1,7 @@
-const fs = require('fs')
 const path = require('path')
 const postcss = require('postcss')
 const {objectify} = require('postcss-js')
 const compile = require('./compile')
-
-const read = filename => fs.readFileSync(filename, 'utf-8')
 
 const cssToJs = css => objectify(postcss.parse(css))
 
@@ -71,13 +68,5 @@ const cssInJsIfy = jsStyles => {
   }, {})
 }
 
-const [dist, ...jsSheets] = process.argv.slice(2)
-
-jsSheets.map(read).map(cssToJs).map(cssInJsIfy).map(compile).forEach((compiled, i) => {
-  fs.writeFileSync(
-    path.resolve(path.join(dist, path.basename(jsSheets[i])+'.json')),
-    JSON.stringify(compiled, null, 2)
-  )
-})
-
-fs.writeFileSync(path.resolve(path.join(dist, 'index.css')), compile.css())
+exports = module.exports = css => compile(cssInJsIfy(cssToJs(css)))
+exports.css = () => compile.css()

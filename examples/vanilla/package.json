@@ -1,0 +1,18 @@
+{
+  "name": "dss-example-vanilla",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "rm -rf dist && mkdir dist && cp ./index.html node_modules/dss/classnames.js dist && dss dist `find . -type f -name '*.css'` && serve dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "dss": "file:../../"
+  },
+  "devDependencies": {
+    "serve": "^6.4.9"
+  }
+}
