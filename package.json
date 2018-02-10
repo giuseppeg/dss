@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "description": "Deterministic Style Sheets",
   "main": "index.js",
-  "bin": { "dss": "bin/dss" },
+  "bin": {
+    "dss": "bin/dss"
+  },
   "keywords": [],
   "author": "Giuseppe Gurgone",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "glob": "^7.1.2",
     "just-flatten-it": "^2.0.0",
     "loader-utils": "^1.1.0",
     "postcss": "^6.0.17",

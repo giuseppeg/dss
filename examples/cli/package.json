@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "rm -rf dist && mkdir dist && cp ./index.html node_modules/dss/classnames.js dist && dss dist `find . -type f -name '*.css'` && serve dist"
+    "start": "rm -rf dist && mkdir dist && cp ./index.html node_modules/dss/classnames.js dist && dss '*.css' dist && serve dist"
   },
   "keywords": [],
   "author": "",
