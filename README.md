@@ -4,8 +4,7 @@
 
 DSS is like Cascading Style Sheets but as the name suggests styles resolution is deterministic.
 
-The repo comes with `examples`. 
-e.g. `cd examples/cli`)
+The repo comes with `examples`:
 
 ```shell
 cd examples/cli 
