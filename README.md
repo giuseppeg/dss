@@ -44,7 +44,7 @@ and
 }
 ```
 
-[`classNames`](./src/classnames.js) is a simple function that applies the tokens (class names) in a deterministic way.
+[`classNames`](./classnames.js) is a simple function that applies the tokens (class names) in a deterministic way.
 
 The concept is similar to CSS Modules and most importantly **is language agnostic (it is not CSS-in-JS)** i.e. you write DSS in `.css` files, compile them and then you can consume the styles in any language (Ruby, PHP, Python etc) that implements the super simple `classNames` helper.
 
