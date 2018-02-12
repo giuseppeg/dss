@@ -4,10 +4,14 @@
 
 DSS is like Cascading Style Sheets but as the name suggests styles resolution is deterministic.
 
-The repo comes with an example that you can build:
+The repo comes with `examples`. 
+e.g. `cd examples/cli`)
 
 ```shell
-npm run example
+cd examples/cli 
+# or cd examples/webpack
+npm install
+npm start
 ```
 
 You can also see the [example on gh-pages](https://giuseppeg.github.io/dss).
