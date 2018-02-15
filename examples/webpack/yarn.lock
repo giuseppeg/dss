@@ -913,7 +913,9 @@ domutils@1.5.1:
 "dss@file:../..":
   version "0.1.0"
   dependencies:
+    glob "^7.1.2"
     just-flatten-it "^2.0.0"
+    loader-utils "^1.1.0"
     postcss "^6.0.17"
     postcss-js "^1.0.1"
 
@@ -1412,7 +1414,7 @@ glob-parent@^3.1.0:
     is-glob "^3.1.0"
     path-dirname "^1.0.0"
 
-glob@^7.0.3, glob@^7.0.5:
+glob@^7.0.3, glob@^7.0.5, glob@^7.1.2:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
   dependencies:

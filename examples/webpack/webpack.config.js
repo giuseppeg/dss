@@ -13,7 +13,7 @@ const config = {
         test: /\.css$/,
         loader: require.resolve('dss/webpack'),
         options: {
-          bundleFilename: 'index.css'
+          bundleFilename: path.join(path.resolve("./dist"), 'index.css')
         }
       }
     ]
