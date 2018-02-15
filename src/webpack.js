@@ -15,8 +15,6 @@ module.exports = function (content, map) {
   let bundleFilename = options.bundleFilename
   if (typeof bundleFilename !== 'string') {
     bundleFilename = 'index.css'
-  } else if (!/\.css$/.test(bundleFilename)) {
-    bundleFilename += '.css'
   }
 
   if (this.cacheable) this.cacheable()
