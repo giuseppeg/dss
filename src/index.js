@@ -1,4 +1,3 @@
-const path = require('path')
 const postcss = require('postcss')
 const {objectify} = require('postcss-js')
 const compile = require('./compile')

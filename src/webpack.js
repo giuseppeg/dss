@@ -22,10 +22,12 @@ module.exports = function (content, map) {
   const compiled = dss(content)
   this.emitFile(path.basename(bundleFilename), `${BUNDLE_MARKER}${dss.css()}`)
 
+  let out = `exports = module.exports = ${JSON.stringify(compiled)}`
   if (options.processBundleWithNextLoaders && !loaded) {
     loaded = true
-    this.loadModule(bundleFilename, () => {})
+    // Add an import so that other loader can process it.
+    out = `import '${bundleFilename}'; ${out}`
   }
 
-  return `exports = module.exports = ${JSON.stringify(compiled)}`
+  return out
 }

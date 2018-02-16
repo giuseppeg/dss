@@ -9,11 +9,17 @@ const config = {
   },
   module: {
     rules: [
+      // this could be css-loader or style-loader
+      {
+        test: path.resolve('./dist/index.css'),
+        loader: require.resolve('./test')
+      },
       {
         test: /\.css$/,
         loader: require.resolve('dss/webpack'),
         options: {
-          bundleFilename: path.join(path.resolve("./dist"), 'index.css')
+          bundleFilename: path.resolve('./dist/index.css'),
+          processBundleWithNextLoaders: true,
         }
       }
     ]
