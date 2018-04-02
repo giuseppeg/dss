@@ -6,14 +6,51 @@
   "bin": {
     "dss": "bin/dss"
   },
+  "files": [
+    "src",
+    "classnames.js",
+    "index.js",
+    "webpack.js",
+    "LICENSE",
+    "README.md"
+  ],
   "keywords": [],
   "author": "Giuseppe Gurgone",
   "license": "BSD-3-Clause",
+  "scripts": {
+    "test": "xo && jest --coverage",
+    "test:unit": "jest",
+    "lint": "xo",
+    "format": "prettier --single-quote --no-semi --write *.js {src,test}/*.js"
+  },
   "dependencies": {
     "glob": "^7.1.2",
     "just-flatten-it": "^2.0.0",
     "loader-utils": "^1.1.0",
     "postcss": "^6.0.17",
-    "postcss-js": "^1.0.1"
+    "postcss-js": "^1.0.1",
+    "postcss-nest-atrules": "^0.1.0"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3",
+    "prettier": "^1.11.1",
+    "xo": "^0.20.3"
+  },
+  "xo": {
+    "envs": [
+      "node",
+      "browser"
+    ],
+    "extends": "prettier",
+    "ignores": ["src/vendor"],
+    "rules": {
+      "capitalized-comments": 0,
+      "unicorn/import-index": 0
+    },
+    "globals": [
+      "describe",
+      "it",
+      "expect"
+    ]
   }
 }

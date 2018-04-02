@@ -1,7 +1,6 @@
+const classNames = require('dss/classnames')
 const a = require('./a.css')
 const b = require('./b.css')
-const d = require('./d.css')
-const classNames = require('dss/classnames')
 
 const root = document.querySelector('main')
 

@@ -7,14 +7,14 @@ let cache = {}
 const rules = []
 const insert = rule => rules.push(rule)
 const hyph = s => s.replace(/[A-Z]|^ms/g, '-$&').toLowerCase()
-const mx = (rule, media) => media ? `${media}{${rule}}` : rule
+const mx = (rule, media) => (media ? `${media}{${rule}}` : rule)
 const rx = (cn, prop, val) => `.${cn}{${hyph(prop)}:${val}}`
 const noAnd = s => s.replace(/&/g, '')
 
 const className = (key, val, child, media) => {
   const _key = key + val + child + media
   if (cache[_key]) return cache[_key]
-  const className = `dss_${hash(key+media+child)}-${hash(val)}`
+  const className = `dss_${hash(key + media + child)}-${hash(val)}`
   insert(mx(rx(className + noAnd(child), key, val), media))
   cache[_key] = className
   return className
@@ -25,7 +25,7 @@ const parse = (obj, child = '', media) =>
     const val = obj[key]
     if (val === null) return ''
     if (Object.prototype.toString.call(val) === '[object Object]') {
-      const m2 = /^@/.test(key) ? key : null
+      const m2 = key.charAt(0) ? key : null
       const c2 = m2 ? child : child + key
       return parse(val, c2, m2 || media)
     }

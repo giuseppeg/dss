@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`processor applies the nest-atrules plugin 1`] = `
+"
+      .root {
+        color: red;
+      @media (min-width: 10px) {
+          display: block
+      }
+      }
+    "
+`;
+
+exports[`processor applies the split-grouped-selectors plugin 1`] = `
+"
+      .a {
+        color: red;
+      }
+      .b {
+        color: red;
+      }
+    "
+`;

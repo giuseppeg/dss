@@ -1,5 +1,5 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const config = {
   entry: path.resolve('./src/index.js'),
@@ -25,4 +25,4 @@ const config = {
   ]
 }
 
-exports = module.exports = config
+module.exports = config

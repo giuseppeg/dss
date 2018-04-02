@@ -1,4 +1,4 @@
-(function (root) {
+;(function(root) {
   if (typeof module === 'object' && module.exports) {
     module.exports = classnames
   } else {
@@ -18,8 +18,10 @@
     }
     for (let i = groups.length - 1; i >= 0; i--) {
       const group = groups[i]
-      if (!group) { continue }
-      if (typeof group == 'string') {
+      if (!group) {
+        continue
+      }
+      if (typeof group === 'string') {
         setVal(group)
         continue
       }
@@ -28,4 +30,4 @@
 
     return out.join(' ')
   }
-}(typeof self !== 'undefined' ? self : this))
+})(typeof self === 'undefined' ? this : self)
