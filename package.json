@@ -21,7 +21,7 @@
     "test": "xo && jest --coverage",
     "test:unit": "jest",
     "lint": "xo",
-    "format": "prettier --single-quote --no-semi --write *.js {src,test}/*.js"
+    "format": "prettier --single-quote --no-semi --write *.js {src,src/*,test}/*.js"
   },
   "dependencies": {
     "glob": "^7.1.2",

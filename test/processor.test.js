@@ -32,4 +32,27 @@ describe('processor', () => {
     `)
     expect(css).toMatchSnapshot()
   })
+
+  it('applies the nest-pseudo plugin', async () => {
+    const { css } = await processor(`
+      .a:hover {
+        color: red;
+      }
+      .b:hover, .b {
+        color: hotpink
+      }
+    `)
+    expect(css).toMatchSnapshot()
+  })
+
+  it('mixed nest-atrules and nest-pseudo', async () => {
+    const { css } = await processor(`
+      @media (min-width: 10px) {
+        .a:hover {
+          color: red;
+        }
+      }
+    `)
+    expect(css).toMatchSnapshot()
+  })
 })

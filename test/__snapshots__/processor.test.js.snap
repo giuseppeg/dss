@@ -11,6 +11,24 @@ exports[`processor applies the nest-atrules plugin 1`] = `
     "
 `;
 
+exports[`processor applies the nest-pseudo plugin 1`] = `
+"
+      .a {
+      &:hover {
+        color: red;
+      }
+      }
+      .b {
+      &:hover {
+        color: hotpink
+      }
+      }
+      .b {
+        color: hotpink
+      }
+    "
+`;
+
 exports[`processor applies the split-grouped-selectors plugin 1`] = `
 "
       .a {
@@ -19,5 +37,17 @@ exports[`processor applies the split-grouped-selectors plugin 1`] = `
       .b {
         color: red;
       }
+    "
+`;
+
+exports[`processor mixed nest-atrules and nest-pseudo 1`] = `
+"
+        .a {
+        &:hover {
+      @media (min-width: 10px) {
+          color: red
+      }
+        }
+        }
     "
 `;
