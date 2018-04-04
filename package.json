@@ -42,7 +42,7 @@
       "browser"
     ],
     "extends": "prettier",
-    "ignores": ["src/vendor"],
+    "ignores": ["src/vendor", "examples"],
     "rules": {
       "capitalized-comments": 0,
       "unicorn/import-index": 0
