@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`objetify css media and pseudo 1`] = `
+Object {
+  ".a": Object {
+    "@media (min-width: 30px)": Object {
+      ":hover": Object {
+        "color": "red",
+      },
+    },
+  },
+}
+`;
+
+exports[`objetify css multiple 1`] = `
+Object {
+  ".a": Object {
+    ":hover": Object {
+      "color": "blue",
+    },
+    "@media screen and (min-width: 30px)": Object {
+      "color": "hotpink",
+    },
+    "color": "red",
+  },
+}
+`;
+
+exports[`objetify css pseudo class 1`] = `
+Object {
+  ".a": Object {
+    ":hover": Object {
+      "color": "red",
+    },
+  },
+}
+`;
+
+exports[`objetify css simple and pseudo class 1`] = `
+Object {
+  ".a": Object {
+    ":hover": Object {
+      "color": "red",
+    },
+    "color": "pink",
+  },
+}
+`;
+
+exports[`objetify css simple rule 1`] = `
+Object {
+  ".a": Object {
+    "color": "red",
+  },
+}
+`;

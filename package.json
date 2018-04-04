@@ -52,5 +52,11 @@
       "it",
       "expect"
     ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js}",
+      "!src/vendor/*"
+    ]
   }
 }

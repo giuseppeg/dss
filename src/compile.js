@@ -25,7 +25,7 @@ const parse = (obj, child = '', media) =>
     const val = obj[key]
     if (val === null) return ''
     if (Object.prototype.toString.call(val) === '[object Object]') {
-      const m2 = key.charAt(0) ? key : null
+      const m2 = key.charAt(0) === '@' ? key : null
       const c2 = m2 ? child : child + key
       return parse(val, c2, m2 || media)
     }

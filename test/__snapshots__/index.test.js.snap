@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dss compiles 1`] = `
+Object {
+  "a": Array [
+    "dss_rfc3hq-169mlyl",
+    "dss_16bwgo5-11z5xnj",
+    "dss_1u3exn4-nfznl2",
+  ],
+}
+`;
+
+exports[`dss compiles 2`] = `".dss_1u3exn4-nfznl2:hover{color:blue}.dss_rfc3hq-169mlyl{color:red}@media screen and (min-width: 30px){.dss_16bwgo5-11z5xnj{color:hotpink}}"`;
