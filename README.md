@@ -1,5 +1,9 @@
 # Deterministic Style Sheets
 
+[![Build Status](https://travis-ci.org/giuseppeg/dss.svg?branch=master)](https://travis-ci.org/giuseppeg/dss)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
 [warning] The code in this repo is a Proof of Concept for an idea that is still at the validation stage. Feedbacks are welcome -> [@giuseppegurgone](https://twitter.com/giuseppegurgone)
 
 DSS is like Cascading Style Sheets but as the name suggests styles resolution is deterministic.
@@ -7,7 +11,7 @@ DSS is like Cascading Style Sheets but as the name suggests styles resolution is
 The repo comes with `examples`:
 
 ```shell
-cd examples/cli 
+cd examples/cli
 # or cd examples/webpack
 npm install
 npm start
