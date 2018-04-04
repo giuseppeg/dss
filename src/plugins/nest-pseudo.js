@@ -7,7 +7,7 @@ module.exports = postcss.plugin('postcss-dss-nest-pseudo', () => {
       if (parts.length < 2 || parts[0] === '&' || parts[0] === '') {
         return
       }
-      const selector = '&:' + parts.slice(1).join(':')
+      const selector = ':' + parts.slice(1).join(':')
       const clone = rule.clone()
       clone.selector = selector
       rule.nodes = [clone]

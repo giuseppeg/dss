@@ -14,12 +14,12 @@ exports[`processor applies the nest-atrules plugin 1`] = `
 exports[`processor applies the nest-pseudo plugin 1`] = `
 "
       .a {
-      &:hover {
+      :hover {
         color: red;
       }
       }
       .b {
-      &:hover {
+      :hover {
         color: hotpink
       }
       }
@@ -43,7 +43,7 @@ exports[`processor applies the split-grouped-selectors plugin 1`] = `
 exports[`processor mixed nest-atrules and nest-pseudo 1`] = `
 "
         .a {
-        &:hover {
+        :hover {
       @media (min-width: 10px) {
           color: red
       }

@@ -27,6 +27,11 @@ module.exports = postcss.plugin('postcss-dss-selectors', () => {
           `Invalid selector: ${selector}. Only class selectors are allowed.`
         )
       }
+      if (/[\s+>[]/.test(selector)) {
+        throw rule.error(
+          `Invalid selector: ${selector}. Cannot use complex selectors, please use only class selectors.`
+        )
+      }
       processed[params + selector] = true
     })
   }
