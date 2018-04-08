@@ -19,6 +19,8 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "test": "xo && jest --coverage",
+    "test:browser": "browserify test/browser/index.js | tape-run",
+    "test:browser:server": "node test/browser/server.js",
     "jest": "jest",
     "lint": "xo",
     "format": "prettier --single-quote --no-semi --write *.js {src,src/*,test}/*.js"
@@ -32,8 +34,12 @@
     "postcss-nest-atrules": "^0.1.0"
   },
   "devDependencies": {
+    "browserify": "^16.1.1",
     "jest": "^22.4.3",
     "prettier": "^1.11.1",
+    "tape": "^4.9.0",
+    "tape-css": "^1.0.2-beta",
+    "tape-run": "^4.0.0",
     "xo": "^0.20.3"
   },
   "xo": {
@@ -42,7 +48,10 @@
       "browser"
     ],
     "extends": "prettier",
-    "ignores": ["src/vendor", "examples"],
+    "ignores": [
+      "src/vendor",
+      "examples"
+    ],
     "rules": {
       "capitalized-comments": 0,
       "unicorn/import-index": 0
