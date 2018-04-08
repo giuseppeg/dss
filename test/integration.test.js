@@ -20,7 +20,7 @@ describe('integrations', () => {
     cls = await dss(`
       .a { color: red }
       .b { color: green }
-      .a:hover { color: yellow }
+      .a:focus { color: yellow }
     `)
     styleElement = document.createElement('style')
     styleElement.textContent = dss.css()
@@ -47,6 +47,19 @@ describe('integrations', () => {
     )
     expect(getComputedStyle(r2.node, null).getPropertyValue('color')).toBe(
       'green'
+    )
+  })
+
+  // Skip since this won't work with jest/jsdom
+  // will refactor the tests so that can be run in an actual browser.
+  it.skip('works with pseudo selectors', () => {
+    const r = render(`
+      <input class="${classNames(cls.a)}" />
+    `)
+    cleanup = r.cleanup
+    r.node.focus()
+    expect(getComputedStyle(r.node, null).getPropertyValue('color')).toBe(
+      'yellow'
     )
   })
 })
