@@ -14,7 +14,7 @@ const render = html => {
   }
 }
 
-describe.only('integrations', () => {
+describe('integrations', () => {
   let cls, cls2, styleElement, cleanup
   beforeEach(async () => {
     cls = await dss(`
@@ -31,13 +31,22 @@ describe.only('integrations', () => {
     cleanup()
   })
 
-  it('works', () => {
-    const r = render(`
-      <div className="${classNames(cls.b, cls.a)}">hi</div>
+  it('applies styles in order', () => {
+    const r1 = render(`
+      <div class="${classNames(cls.b, cls.a)}"></div>
     `)
-    cleanup = r.cleanup
-    const {node} = r
-    const styles = getComputedStyle(node, null)
-    console.log(styles.getPropertyValue('color'))
+    const r2 = render(`
+      <div class="${classNames(cls.a, cls.b)}"></div>
+    `)
+    cleanup = () => {
+      r1.cleanup()
+      r2.cleanup()
+    }
+    expect(getComputedStyle(r1.node, null).getPropertyValue('color')).toBe(
+      'red'
+    )
+    expect(getComputedStyle(r2.node, null).getPropertyValue('color')).toBe(
+      'green'
+    )
   })
 })

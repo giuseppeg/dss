@@ -19,7 +19,7 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "test": "xo && jest --coverage",
-    "test:unit": "jest",
+    "jest": "jest",
     "lint": "xo",
     "format": "prettier --single-quote --no-semi --write *.js {src,src/*,test}/*.js"
   },

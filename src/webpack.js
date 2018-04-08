@@ -26,7 +26,10 @@ module.exports = function(content) {
 
   dss(content)
     .then(compiled => {
-      this.emitFile(path.basename(bundleFilename), `${BUNDLE_MARKER}${dss.css()}`)
+      this.emitFile(
+        path.basename(bundleFilename),
+        `${BUNDLE_MARKER}${dss.css()}`
+      )
 
       if (options.processBundleWithNextLoaders && !loaded) {
         loaded = true
