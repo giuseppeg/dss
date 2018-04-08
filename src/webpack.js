@@ -5,6 +5,7 @@ const dss = require('./index')
 const BUNDLE_MARKER = '/*___DSS_BUNDLE___*/'
 let loaded = false
 module.exports = function(content) {
+  const callback = this.async()
   const options = loaderUtils.getOptions(this) || {}
 
   // Don't process the bundle file
@@ -12,7 +13,8 @@ module.exports = function(content) {
     options.processBundleWithNextLoaders &&
     content.indexOf(BUNDLE_MARKER) !== -1
   ) {
-    return content
+    callback(content)
+    return
   }
 
   let bundleFilename = options.bundleFilename
@@ -22,13 +24,15 @@ module.exports = function(content) {
 
   if (this.cacheable) this.cacheable()
 
-  const compiled = dss(content)
-  this.emitFile(path.basename(bundleFilename), `${BUNDLE_MARKER}${dss.css()}`)
+  dss(content)
+    .then(compiled => {
+      this.emitFile(path.basename(bundleFilename), `${BUNDLE_MARKER}${dss.css()}`)
 
-  if (options.processBundleWithNextLoaders && !loaded) {
-    loaded = true
-    this.loadModule(bundleFilename, () => {})
-  }
-
-  return `module.exports = ${JSON.stringify(compiled)}`
+      if (options.processBundleWithNextLoaders && !loaded) {
+        loaded = true
+        this.loadModule(bundleFilename, () => {})
+      }
+      callback(`module.exports = ${JSON.stringify(compiled)}`)
+    })
+    .catch(callback)
 }

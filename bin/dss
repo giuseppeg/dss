@@ -11,11 +11,13 @@ const [globPattern, dist, bundleFilename] = process.argv.slice(2)
 
 const jsSheets = glob.sync(globPattern)
 
-jsSheets.map(read).map(dss).forEach((compiled, i) => {
-  fs.writeFileSync(
-    path.resolve(path.join(dist, path.basename(jsSheets[i])+'.json')),
-    JSON.stringify(compiled, null, 2)
-  )
-})
+Promise.all(jsSheets.map(read).map(dss)).then(results => {
+  results.forEach((compiled, i) => {
+    fs.writeFileSync(
+      path.resolve(path.join(dist, path.basename(jsSheets[i])+'.json')),
+      JSON.stringify(compiled, null, 2)
+    )
+  })
 
-fs.writeFileSync(path.resolve(path.join(dist, bundleFilename || 'index.css')), dss.css())
+  fs.writeFileSync(path.resolve(path.join(dist, bundleFilename || 'index.css')), dss.css())
+})
