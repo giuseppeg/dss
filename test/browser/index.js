@@ -5,8 +5,17 @@ const { compile, makeDom, run } = require('./utils')
 run(async () => {
   const {classes, styles} = await compile(`
     .a { background-color: red }
-    .b { background-color: green }
     .a:focus { background-color: yellow }
+    .b { background-color: green }
+    .c { background-color: red; display: block }
+    @media (min-width: 0px) {
+      .c {
+        background-color: green;
+        display: inline-block;
+      }
+      .d:focus { background-color: yellow }
+    }
+    .d { background-color: orange; font-weight: bold }
   `)
 
   const dom1 = makeDom(`
@@ -51,9 +60,49 @@ run(async () => {
         'rgb(255, 0, 0)',
         'initially it should be rgb(255, 0, 0) i.e. red'
       )
+
       dom2.focus()
+
       t.equal(
         getComputedStyle(dom2).getPropertyValue('background-color'),
+        'rgb(255, 255, 0)',
+        'on focus it should be rgb(255, 255, 0) i.e. yellow'
+      )
+      t.end()
+    }
+  )
+
+  const dom3 = makeDom(`
+    <input class="${classNames(classes.d, classes.c)}" />
+  `)
+  test(
+    'works with media queries',
+    {
+      dom: dom3,
+      styles
+    },
+    t => {
+      const s = getComputedStyle(dom3)
+      t.equal(
+        s.getPropertyValue('background-color'),
+        'rgb(0, 128, 0)',
+        'initially `background-color` should be rgb(0, 128, 0) i.e. green'
+      )
+      t.equal(
+        s.getPropertyValue('display'),
+        'inline-block',
+        'initially `display` should be `inline-block`'
+      )
+      t.equal(
+        s.getPropertyValue('font-weight'),
+        'bold',
+        'initially `font-weight` should be `bold`'
+      )
+
+      dom3.focus()
+
+      t.equal(
+        getComputedStyle(dom3).getPropertyValue('background-color'),
         'rgb(255, 255, 0)',
         'on focus it should be rgb(255, 255, 0) i.e. yellow'
       )
