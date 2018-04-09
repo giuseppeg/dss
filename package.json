@@ -18,8 +18,9 @@
   "author": "Giuseppe Gurgone",
   "license": "BSD-3-Clause",
   "scripts": {
-    "test": "xo && jest --coverage",
-    "test:browser": "browserify test/browser/index.js | tape-run",
+    "test": "xo && jest --coverage && npm run test:browser",
+    "test:browser": "run-p --race test:browser:server test:browser:run",
+    "test:browser:run": "browserify test/browser/index.js | tape-run",
     "test:browser:server": "node test/browser/server.js",
     "jest": "jest",
     "lint": "xo",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "browserify": "^16.1.1",
     "jest": "^22.4.3",
+    "npm-run-all": "^4.1.2",
     "prettier": "^1.11.1",
     "tape": "^4.9.0",
     "tape-css": "^1.0.2-beta",
