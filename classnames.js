@@ -1,3 +1,4 @@
+/* eslint-disable no-var, prefer-arrow-callback */
 ;(function(root) {
   if (typeof module === 'object' && module.exports) {
     module.exports = classnames
@@ -5,29 +6,33 @@
     root.classnames = classnames
   }
 
-  function classnames(...classGroups) {
-    const groups = classGroups.filter(Boolean)
-    const props = {}
-    const out = []
-    const setVal = propVal => {
-      const prop = propVal.substr(0, propVal.indexOf('-'))
-      if (!props[prop]) {
-        props[prop] = true
-        out.push(propVal)
-      }
+  function setVal(processed, classes, propValue) {
+    var prop = propValue.substr(0, propValue.indexOf('-'))
+    if (!processed[prop]) {
+      processed[prop] = true
+      classes.push(propValue)
     }
-    for (let i = groups.length - 1; i >= 0; i--) {
-      const group = groups[i]
+  }
+
+  function classnames() {
+    var groups = Array.prototype.slice.call(arguments).filter(Boolean)
+    var processed = {}
+    var classes = []
+
+    for (var i = groups.length - 1; i >= 0; i--) {
+      var group = groups[i]
       if (!group) {
         continue
       }
       if (typeof group === 'string') {
-        setVal(group)
+        setVal(processed, classes, group)
         continue
       }
-      group.forEach(setVal)
+      group.forEach(function(item) {
+        setVal(processed, classes, item)
+      })
     }
 
-    return out.join(' ')
+    return classes.join(' ')
   }
 })(typeof self === 'undefined' ? this : self)
