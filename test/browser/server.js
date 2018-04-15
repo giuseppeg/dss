@@ -17,7 +17,7 @@ const requestHandler = (request, response) => {
   })
 
   request.on('end', async () => {
-    const classes = await dss(css)
+    const classes = await dss(css, { readableClass: (localName, hash) => `Test-${localName}-${hash}` })
     const styles = dss.css()
     response.write(JSON.stringify({ classes, styles }))
     response.end()

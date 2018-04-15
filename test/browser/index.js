@@ -156,6 +156,28 @@ run(async () => {
         'rgb(0, 128, 0)',
         'initially `background-color` should be rgb(0, 128, 0) i.e. green'
       )
+      t.end()
+    }
+  )
+
+  const dom6 = makeDom(`
+    <input class="${classNames(classes.a, classes.f, 'Test')}" />
+  `)
+  test(
+    'has readable class names',
+    {
+      dom: dom6,
+      styles
+    },
+    t => {
+      const matches = dom6.className.match(/(Test-[a|f]-)/g)
+
+      t.equal(
+        matches ? matches.length : 0,
+        2,
+        'should have Test-a-hash and Test-f-hash class names'
+      )
+      t.end()
     }
   )
 })

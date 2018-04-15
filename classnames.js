@@ -6,18 +6,24 @@
     root.classnames = classnames
   }
 
-  function setVal(processed, classes, propValue) {
-    var prop = propValue.substr(0, propValue.indexOf('-'))
+  function setVal(processed, dssClasses, otherClasses, propValue) {
+    var prop
+    if (propValue.substr(0, 4) !== 'dss_') {
+      otherClasses.push(propValue)
+      return
+    }
+    prop = propValue.substr(0, propValue.indexOf('-'))
     if (!processed[prop]) {
       processed[prop] = true
-      classes.push(propValue)
+      dssClasses.push(propValue)
     }
   }
 
   function classnames() {
     var groups = Array.prototype.slice.call(arguments).filter(Boolean)
     var processed = {}
-    var classes = []
+    var dssClasses = []
+    var otherClasses = []
 
     for (var i = groups.length - 1; i >= 0; i--) {
       var group = groups[i]
@@ -25,14 +31,14 @@
         continue
       }
       if (typeof group === 'string') {
-        setVal(processed, classes, group)
+        setVal(processed, dssClasses, otherClasses, group)
         continue
       }
       group.forEach(function(item) {
-        setVal(processed, classes, item)
+        setVal(processed, dssClasses, otherClasses, item)
       })
     }
 
-    return classes.join(' ')
+    return otherClasses.concat(dssClasses).join(' ')
   }
 })(typeof self === 'undefined' ? this : self)

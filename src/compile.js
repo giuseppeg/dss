@@ -35,9 +35,14 @@ const parse = (obj, child = '', media) =>
     return className(key, val, child, media)
   })
 
-module.exports = styles =>
+module.exports = (styles, opts = {}) =>
   Object.keys(styles).reduce((acc, key) => {
-    acc[key.replace(/^\./, '')] = flatten(parse(styles[key]))
+    const jsKey = key.replace(/^\./, '')
+    acc[jsKey] = flatten(parse(styles[key]))
+    if (typeof opts.makeReadableClass === 'function') {
+      const readableClass = opts.makeReadableClass(jsKey)
+      acc[jsKey].unshift(readableClass)
+    }
     return acc
   }, {})
 
