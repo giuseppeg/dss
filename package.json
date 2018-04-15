@@ -32,7 +32,7 @@
     "loader-utils": "^1.1.0",
     "postcss": "^6.0.17",
     "postcss-js": "^1.0.1",
-    "postcss-nest-atrules": "^0.1.0"
+    "postcss-nest-atrules": "0.1.2"
   },
   "devDependencies": {
     "browserify": "^16.1.1",

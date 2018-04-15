@@ -55,6 +55,44 @@ describe('processor', () => {
         }
       }
     `)
+
+    expect(css).toMatchSnapshot()
+  })
+
+  it('merges rules', async () => {
+    const { css } = await processor(`
+      .root:hover {
+        color: yellow;
+      }
+
+      .block {
+        display: block;
+        margin: 10px;
+      }
+
+      @media (min-width: 600px) {
+        .root {
+          color: green;
+        }
+
+        .test {
+          color: green;
+          color: yellow;
+        }
+      }
+
+      .root {
+        color: red;
+        font-family: Verdana;
+        display: block;
+      }
+
+      .test {
+        color: red;
+        color: pink;
+      }
+    `)
+
     expect(css).toMatchSnapshot()
   })
 

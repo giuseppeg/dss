@@ -109,4 +109,31 @@ run(async () => {
       t.end()
     }
   )
+
+  const dom4 = makeDom(`
+    <input class="${classNames(classes.c, classes.d)}" />
+  `)
+  test(
+    'works with merged rules',
+    {
+      dom: dom4,
+      styles
+    },
+    t => {
+      t.equal(
+        getComputedStyle(dom4).getPropertyValue('background-color'),
+        'rgb(0, 128, 0)',
+        'initially `background-color` should be rgb(0, 128, 0) i.e. green'
+      )
+
+      dom4.focus()
+
+      t.equal(
+        getComputedStyle(dom4).getPropertyValue('background-color'),
+        'rgb(255, 255, 0)',
+        'on focus it should be rgb(255, 255, 0) i.e. yellow'
+      )
+      t.end()
+    }
+  )
 })

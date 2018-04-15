@@ -3,7 +3,7 @@ const processor = require('./processor')
 const compile = require('./compile')
 
 module.exports = async css => {
-  const ast = await processor(css).then(result => result.root)
-  return compile(objectify(ast))
+  const result = await processor(css)
+  return compile(objectify(result.root))
 }
 module.exports.css = () => compile.css()

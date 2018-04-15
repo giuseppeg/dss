@@ -40,6 +40,41 @@ exports[`processor applies the split-grouped-selectors plugin 1`] = `
     "
 `;
 
+exports[`processor merges rules 1`] = `
+"
+      .root {
+      :hover {
+        color: yellow;
+      }
+      }
+
+      .block {
+        display: block;
+        margin: 10px;
+      }
+
+      .root {
+        color: red;
+        font-family: Verdana;
+        display: block;
+
+      @media (min-width: 600px) {
+          color: green
+      }
+      }
+
+      .test {
+        color: red;
+        color: pink;
+
+      @media (min-width: 600px) {
+          color: green;
+          color: yellow
+      }
+      }
+    "
+`;
+
 exports[`processor mixed nest-atrules and nest-pseudo 1`] = `
 "
         .a {

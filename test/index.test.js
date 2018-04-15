@@ -9,6 +9,7 @@ describe('dss', () => {
         .a { color: hotpink }
       }
     `)
+
     expect(styles).toMatchSnapshot()
     expect(dss.css()).toMatchSnapshot()
   })
