@@ -9,12 +9,14 @@ const read = filePath => fs.readFileSync(filePath, 'utf-8')
 
 const [globPattern, dist, bundleFilename] = process.argv.slice(2)
 
-const jsSheets = glob.sync(globPattern).map(filePath => {
+const jsSheets = glob.sync(globPattern)
+
+const compilePromises = jsSheets.map(filePath => {
   const css = read(filePath)
   return dss(css, { filePath, readableClass: process.env.NODE_ENV !== 'production' })
 })
 
-Promise.all(jsSheets).then(results => {
+Promise.all(compilePromises).then(results => {
   results.forEach((compiled, i) => {
     fs.writeFileSync(
       path.resolve(path.join(dist, path.basename(jsSheets[i])+'.json')),
