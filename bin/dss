@@ -5,13 +5,13 @@ const path = require('path')
 const glob = require('glob')
 const dss = require('..')
 
-const read = filename => fs.readFileSync(filename, 'utf-8')
+const read = filePath => fs.readFileSync(filePath, 'utf-8')
 
 const [globPattern, dist, bundleFilename] = process.argv.slice(2)
 
-const jsSheets = glob.sync(globPattern).map(filename => {
-  const css = read(filename)
-  return dss(css, { filename, addReadableClass: process.env.NODE_ENV !== 'production' })
+const jsSheets = glob.sync(globPattern).map(filePath => {
+  const css = read(filePath)
+  return dss(css, { filePath, readableClass: process.env.NODE_ENV !== 'production' })
 })
 
 Promise.all(jsSheets).then(results => {
