@@ -16,6 +16,10 @@ run(async () => {
       .d:focus { background-color: yellow }
     }
     .d { background-color: orange; font-weight: bold }
+    .f {
+      background-color: green;
+      background-color: invalid;
+    }
   `)
 
   const dom1 = makeDom(`
@@ -134,6 +138,24 @@ run(async () => {
         'on focus it should be rgb(255, 255, 0) i.e. yellow'
       )
       t.end()
+    }
+  )
+
+  const dom5 = makeDom(`
+    <input class="${classNames(classes.a, classes.f)}" />
+  `)
+  test(
+    'works with fallbacks',
+    {
+      dom: dom5,
+      styles
+    },
+    t => {
+      t.equal(
+        getComputedStyle(dom5).getPropertyValue('background-color'),
+        'rgb(0, 128, 0)',
+        'initially `background-color` should be rgb(0, 128, 0) i.e. green'
+      )
     }
   )
 })

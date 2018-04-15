@@ -9,13 +9,16 @@ const insert = rule => rules.push(rule)
 const hyph = s => s.replace(/[A-Z]|^ms/g, '-$&').toLowerCase()
 const mx = (rule, media) => (media ? `${media}{${rule}}` : rule)
 const rx = (cn, prop, val) => `.${cn}{${hyph(prop)}:${val}}`
+const rxArr = (cn, prop, vals) =>
+  `.${cn}{${vals.map(val => `${hyph(prop)}:${val}`).join(';')}}`
 const noAnd = s => s.replace(/&/g, '')
 
 const className = (key, val, child, media) => {
   const _key = key + val + child + media
   if (cache[_key]) return cache[_key]
-  const className = `dss_${hash(key + media + child)}-${hash(val)}`
-  insert(mx(rx(className + noAnd(child), key, val), media))
+  const className = `dss_${hash(key + media + child)}-${hash(val.toString())}`
+  const rxFn = Array.isArray(val) ? rxArr : rx
+  insert(mx(rxFn(className + noAnd(child), key, val), media))
   cache[_key] = className
   return className
 }
@@ -28,9 +31,6 @@ const parse = (obj, child = '', media) =>
       const m2 = key.charAt(0) === '@' ? key : null
       const c2 = m2 ? child : child + key
       return parse(val, c2, m2 || media)
-    }
-    if (Array.isArray(val)) {
-      return val.map(v => className(key, v, child, media))
     }
     return className(key, val, child, media)
   })

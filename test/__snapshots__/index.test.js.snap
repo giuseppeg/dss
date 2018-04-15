@@ -10,4 +10,37 @@ Object {
 }
 `;
 
-exports[`dss compiles 2`] = `".dss_1u3exn4-nfznl2:hover{color:blue}.dss_rfc3hq-169mlyl{color:red}@media screen and (min-width: 30px){.dss_16bwgo5-11z5xnj{color:hotpink}}"`;
+exports[`dss compiles 2`] = `
+"
+      .a { color: red; }
+      .a:hover { color: blue; }
+      @media screen and (min-width: 30px) {
+        .a { color: hotpink }
+      }
+    
+
+⬇⬇⬇⬇
+
+.dss_1u3exn4-nfznl2:hover{color:blue}.dss_rfc3hq-169mlyl{color:red}@media screen and (min-width: 30px){.dss_16bwgo5-11z5xnj{color:hotpink}}"
+`;
+
+exports[`dss compiles fallbacks 1`] = `
+Object {
+  "a": Array [
+    "dss_rfc3hq-1t0ure0",
+  ],
+}
+`;
+
+exports[`dss compiles fallbacks 2`] = `
+"
+      .a {
+        color: red;
+        color: green;
+      }
+    
+
+⬇⬇⬇⬇
+
+.dss_rfc3hq-1t0ure0{color:red;color:green}"
+`;

@@ -7,3 +7,9 @@ module.exports = async css => {
   return compile(objectify(result.root))
 }
 module.exports.css = () => compile.css()
+module.exports.reset = () => compile.reset()
+module.exports.flush = () => {
+  const css = compile.css()
+  compile.reset()
+  return css
+}
