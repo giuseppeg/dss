@@ -4305,9 +4305,9 @@ postcss-js@^1.0.1:
     camelcase-css "^1.0.1"
     postcss "^6.0.11"
 
-postcss-nest-atrules@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/postcss-nest-atrules/-/postcss-nest-atrules-0.1.1.tgz#1eae22d89f6e8648d39e12fbce27778b40d7eec0"
+postcss-nest-atrules@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/postcss-nest-atrules/-/postcss-nest-atrules-0.1.2.tgz#91bc2c722882815b41c0bd719e3a50772853d59c"
   dependencies:
     postcss "^6.0.16"
 
