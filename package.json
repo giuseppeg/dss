@@ -29,8 +29,10 @@
   "dependencies": {
     "glob": "^7.1.2",
     "just-flatten-it": "^2.0.0",
+    "last-call-webpack-plugin": "^3.0.0",
     "loader-utils": "^1.1.0",
     "postcss": "^6.0.17",
+    "postcss-discard-duplicates": "^2.1.0",
     "postcss-js": "^1.0.1",
     "postcss-nest-atrules": "0.1.2"
   },

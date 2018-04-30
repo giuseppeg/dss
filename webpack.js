@@ -1,1 +1,1 @@
-module.exports = require('./src/webpack.js')
+module.exports = require('./src/webpack')
