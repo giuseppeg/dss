@@ -27,6 +27,7 @@
     "format": "prettier --single-quote --no-semi --write *.js {src,src/*,test}/*.js"
   },
   "dependencies": {
+    "autoprefixer": "^8.4.1",
     "glob": "^7.1.2",
     "just-flatten-it": "^2.0.0",
     "last-call-webpack-plugin": "^3.0.0",

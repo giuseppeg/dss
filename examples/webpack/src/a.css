@@ -5,6 +5,8 @@
 .block {
   display: block;
   margin: 10px;
+  filter: blur(20px);
+  border-radius: 5px;
 }
 
 @media (min-width: 600px) {
