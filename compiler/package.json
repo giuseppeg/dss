@@ -1,0 +1,47 @@
+{
+  "name": "@dss/compiler",
+  "version": "0.1.0",
+  "description": "Deterministic Style Sheets - compiler",
+  "main": "index.js",
+  "bin": {
+    "dss": "bin/dss"
+  },
+  "files": [
+    "src",
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [],
+  "author": "Giuseppe Gurgone",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "test": "jest --coverage && npm run test:browser",
+    "test:browser": "run-p --race test:browser:server test:browser:run",
+    "test:browser:run": "browserify test/browser/index.js | tape-run",
+    "test:browser:server": "node test/browser/server.js",
+    "jest": "jest"
+  },
+  "dependencies": {
+    "glob": "^7.1.2",
+    "just-flatten-it": "^2.0.0",
+    "postcss": "^6.0.17",
+    "postcss-js": "^1.0.1",
+    "postcss-nest-atrules": "0.1.2"
+  },
+  "devDependencies": {
+    "browserify": "^16.1.1",
+    "jest": "^22.4.3",
+    "npm-run-all": "^4.1.2",
+    "tape": "^4.9.0",
+    "tape-css": "^1.0.2-beta",
+    "tape-run": "^4.0.0",
+    "@dss/classnames": "file:../classnames"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js}",
+      "!src/vendor/*"
+    ]
+  }
+}

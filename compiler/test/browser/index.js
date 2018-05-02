@@ -1,5 +1,5 @@
 const test = require('tape-css')(require('tape'))
-const classNames = require('../../classnames')
+const classNames = require('@dss/classnames')
 const { compile, makeDom, run } = require('./utils')
 
 run(async () => {

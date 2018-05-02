@@ -4,15 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "rm -rf dist && mkdir dist && cp ./index.html node_modules/dss/classnames.js dist && dss '*.css' dist && serve dist"
+    "start": "rm -rf dist && mkdir dist && cp -R ./index.html node_modules/@dss/classnames dist && dss '*.css' dist && serve dist"
   },
   "keywords": [],
   "author": "",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "dss": "file:../../"
+    "@dss/classnames": "file:../../classnames"
   },
   "devDependencies": {
+    "@dss/compiler": "file:../../",
     "serve": "^6.4.9"
   }
 }

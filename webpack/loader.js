@@ -1,5 +1,5 @@
 const loaderUtils = require('loader-utils')
-const dss = require('../')
+const dss = require('@dss/compiler')
 
 const BANNER = '/* DSS file */'
 

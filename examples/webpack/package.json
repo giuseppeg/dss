@@ -1,5 +1,5 @@
 {
-  "name": "dss-example-webpack",
+  "name": "@dss/example-webpack",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -11,9 +11,10 @@
   "author": "",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "dss": "file:../../"
+    "@dss/classnames": "file:../../classnames"
   },
   "devDependencies": {
+    "@dss/webpack": "file:../../webpack",
     "html-webpack-plugin": "^3.0.0",
     "mini-css-extract-plugin": "^0.4.0",
     "webpack": "^4.0.0",

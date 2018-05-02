@@ -1,0 +1,9 @@
+{
+  "name": "@dss/classnames",
+  "version": "0.1.0",
+  "description": "Deterministic Style Sheets - classNames helper",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Giuseppe Gurgone",
+  "license": "BSD-3-Clause"
+}

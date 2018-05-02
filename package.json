@@ -1,50 +1,26 @@
 {
-  "name": "dss",
+  "private": true,
   "version": "0.1.0",
   "description": "Deterministic Style Sheets",
-  "main": "index.js",
-  "bin": {
-    "dss": "bin/dss"
-  },
-  "files": [
-    "src",
-    "classnames.js",
-    "index.js",
-    "webpack.js",
-    "LICENSE",
-    "README.md"
-  ],
   "keywords": [],
   "author": "Giuseppe Gurgone",
   "license": "BSD-3-Clause",
+  "workspaces": [
+    "classnames",
+    "compiler",
+    "examples/cli",
+    "examples/webpack",
+    "webpack",
+    "website"
+  ],
   "scripts": {
-    "test": "xo && jest --coverage && npm run test:browser",
-    "test:browser": "run-p --race test:browser:server test:browser:run",
-    "test:browser:run": "browserify test/browser/index.js | tape-run",
-    "test:browser:server": "node test/browser/server.js",
-    "jest": "jest",
+    "test": "xo && cd compiler && npm test",
     "lint": "xo",
-    "format": "prettier --single-quote --no-semi --write *.js {src,src/*,test}/*.js"
-  },
-  "dependencies": {
-    "autoprefixer": "^8.4.1",
-    "glob": "^7.1.2",
-    "just-flatten-it": "^2.0.0",
-    "last-call-webpack-plugin": "^3.0.0",
-    "loader-utils": "^1.1.0",
-    "postcss": "^6.0.17",
-    "postcss-discard-duplicates": "^2.1.0",
-    "postcss-js": "^1.0.1",
-    "postcss-nest-atrules": "0.1.2"
+    "format": "prettier --single-quote --no-semi --write *.js {src,src/*,test,*}/*.js",
+    "clean": "rm -rf node_modules **/node_modules **/**/node_modules **/dist"
   },
   "devDependencies": {
-    "browserify": "^16.1.1",
-    "jest": "^22.4.3",
-    "npm-run-all": "^4.1.2",
     "prettier": "^1.11.1",
-    "tape": "^4.9.0",
-    "tape-css": "^1.0.2-beta",
-    "tape-run": "^4.0.0",
     "xo": "^0.20.3"
   },
   "xo": {
@@ -54,7 +30,7 @@
     ],
     "extends": "prettier",
     "ignores": [
-      "src/vendor",
+      "compiler/src/vendor",
       "examples"
     ],
     "rules": {
@@ -65,12 +41,6 @@
       "describe",
       "it",
       "expect"
-    ]
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js}",
-      "!src/vendor/*"
     ]
   }
 }

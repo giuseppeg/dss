@@ -1,4 +1,4 @@
-const classNames = require('dss/classnames')
+const classNames = require('@dss/classnames')
 const a = require('./a.css')
 const b = require('./b.css')
 
