@@ -1,7 +1,10 @@
 const LastCallWebpackPlugin = require('last-call-webpack-plugin')
-const postcss = require('postcss')([require('postcss-discard-duplicates'), require('autoprefixer')])
+const postcss = require('postcss')([
+  require('postcss-discard-duplicates'),
+  require('autoprefixer')
+])
 
-function processor(assetName, asset, assets) {
+function processor(assetName, asset) {
   const css = asset.source()
   return postcss
     .process(css, { from: assetName, to: assetName })

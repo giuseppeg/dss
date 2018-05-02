@@ -22,9 +22,19 @@
 "@dss/compiler@file:.":
   version "0.1.0"
 
+"@dss/compiler@file:compiler":
+  version "0.1.0"
+  dependencies:
+    glob "^7.1.2"
+    just-flatten-it "^2.0.0"
+    postcss "^6.0.17"
+    postcss-js "^1.0.1"
+    postcss-nest-atrules "0.1.2"
+
 "@dss/webpack@file:webpack":
   version "0.1.0"
   dependencies:
+    "@dss/compiler" "file:../../../Library/Caches/Yarn/v1/npm-@dss/compiler"
     autoprefixer "^8.4.1"
     last-call-webpack-plugin "^3.0.0"
     postcss "^6.0.17"

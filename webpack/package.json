@@ -7,8 +7,10 @@
   "author": "Giuseppe Gurgone",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "@dss/compiler": "file:../compiler",
     "autoprefixer": "^8.4.1",
     "last-call-webpack-plugin": "^3.0.0",
+    "loader-utils": "^1.1.0",
     "postcss": "^6.0.17",
     "postcss-discard-duplicates": "^2.1.0"
   }
