@@ -1,0 +1,33 @@
+.root {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.size1 {
+  font-size: 3em;
+}
+
+.size2 {
+  font-size: 2em;
+}
+
+.size3 {
+  font-size: 1em;
+}
+
+.size4 {
+  font-size: 0.9em;
+}
+
+.size5 {
+  font-size: 0.8em;
+}
+
+.size6 {
+  font-size: 0.5em;
+}
+
+.link {
+  text-decoration: none;
+}

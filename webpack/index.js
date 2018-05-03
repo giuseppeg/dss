@@ -1,4 +1,21 @@
-const LastCallWebpackPlugin = require('last-call-webpack-plugin')
+let LastCallWebpackPlugin
+try {
+  LastCallWebpackPlugin = require('last-call-webpack-plugin')
+} catch (err) {
+  if (!/cannot find module/i.test(error.message)) {
+    return
+  }
+  console.log(`DSSWebpackPlugin depends on last-call-webpack-plugin.
+
+Webpack 3 user?
+Please install last-call-webpack-plugin@^2.0.0 as devDependency.
+
+Webpack 4 user?
+Please install last-call-webpack-plugin@^3.0.0 as devDependency.
+`)
+  process.exit(1)
+}
+
 const postcss = require('postcss')([
   require('postcss-discard-duplicates'),
   require('autoprefixer')
@@ -16,12 +33,12 @@ class DSSPlugin extends LastCallWebpackPlugin {
     super({
       assetProcessors: [
         {
-          phase: LastCallWebpackPlugin.PHASES.OPTIMIZE_ASSETS,
+          phase: LastCallWebpackPlugin.PHASE.OPTIMIZE_ASSETS,
           regExp: options.test || /\.css$/g,
           processor
         },
         {
-          phase: LastCallWebpackPlugin.PHASES.OPTIMIZE_CHUNK_ASSETS,
+          phase: LastCallWebpackPlugin.PHASE.OPTIMIZE_CHUNK_ASSETS,
           regExp: options.test || /\.css$/g,
           processor
         }
