@@ -37,7 +37,7 @@ module.exports = {
 
     config.plugins.push(
       new DSSWebpackPlugin({
-        test: /index\.css$/
+        test: /static\/index\.css$/
       })
     )
 
