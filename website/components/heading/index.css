@@ -1,7 +1,17 @@
-.root {
+.tag {
+  display: block;
   margin: 0;
   padding: 0;
   font-size: 1rem;
+}
+
+.content {
+  display: block;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .size1 {
@@ -26,8 +36,4 @@
 
 .size6 {
   font-size: 0.5em;
-}
-
-.link {
-  text-decoration: none;
 }

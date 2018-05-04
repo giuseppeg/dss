@@ -1,4 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document'
+import Body from '../components/body'
 
 export default class MyDocument extends Document {
   render() {
@@ -7,10 +8,10 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="stylesheet" href="/_next/static/index.css" />
         </Head>
-        <body>
+        <Body>
           <Main />
           <NextScript />
-        </body>
+        </Body>
       </html>
     )
   }

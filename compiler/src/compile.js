@@ -4,7 +4,7 @@ const hash = require('./vendor/hash')
 /* Fork of cxs with fundamendal changes */
 
 let cache = {}
-const rules = []
+let rules = []
 const insert = rule => rules.push(rule)
 const hyph = s => s.replace(/[A-Z]|^ms/g, '-$&').toLowerCase()
 const mx = (rule, media) => (media ? `${media}{${rule}}` : rule)
@@ -42,13 +42,12 @@ module.exports = (styles, opts = {}) =>
     if (typeof opts.makeReadableClass === 'function') {
       const readableClass = opts.makeReadableClass(jsKey)
       acc[jsKey].unshift(readableClass)
-    }
-    return acc
+    }    return acc
   }, {})
 
 module.exports.css = () => rules.sort().join('')
 
 module.exports.reset = () => {
   cache = {}
-  while (rules.length) rules.pop()
+  rules = []
 }
