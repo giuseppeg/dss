@@ -7,10 +7,10 @@ try {
   }
   console.log(`DSSWebpackPlugin depends on last-call-webpack-plugin.
 
-Webpack 3 user?
+Are you Webpack 3 user?
 Please install last-call-webpack-plugin@^2.0.0 as devDependency.
 
-Webpack 4 user?
+Are you Webpack 4 user?
 Please install last-call-webpack-plugin@^3.0.0 as devDependency.
 `)
   process.exit(1)

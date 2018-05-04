@@ -3,7 +3,7 @@ import styles from './index.css'
 
 const Wrap = ({children, href, target}) => {
   if (!href) { return children }
-  return <a className={styles.link} href={href} target={target}>{children}</a>
+  return <a className={classNames(styles.link)} href={href} target={target}>{children}</a>
 }
 
 export default ({children, level = 1, size = 1, href = null, target = '_self'}) => {

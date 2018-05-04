@@ -5,15 +5,14 @@ const BANNER = '/* DSS file */'
 
 module.exports = function(content) {
   if (this.cacheable) this.cacheable()
+  this.addDependency(this.resourcePath)
   const callback = this.async()
   const options = loaderUtils.getOptions(this) || {}
   let readableClass
   if (typeof options.localIdentName === 'string') {
-    readableClass = localName =>
-      loaderUtils
+    const identName = loaderUtils
         .interpolateName(this, options.localIdentName, { content })
-        .split('[local]')
-        .join(localName)
+    readableClass = localName => identName.replace(/\[local]/g, localName)
   }
 
   dss(content, { readableClass })
