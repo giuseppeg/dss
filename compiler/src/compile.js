@@ -42,7 +42,8 @@ module.exports = (styles, opts = {}) =>
     if (typeof opts.makeReadableClass === 'function') {
       const readableClass = opts.makeReadableClass(jsKey)
       acc[jsKey].unshift(readableClass)
-    }    return acc
+    }
+    return acc
   }, {})
 
 module.exports.css = () => rules.sort().join('')

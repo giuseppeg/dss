@@ -9,8 +9,10 @@ const defaultClassName = {
 }
 
 const Wrap = ({children, className, href, target}) => {
-  if (!href) { return children }
-  return <Link href={href}><a className={classNames(styles.link, ...className)}>{children}</a></Link>
+  if (!href) {
+    return children
+  }
+  return <Link href={href}><a className={classNames(styles.link, ...className)} target={target}>{children}</a></Link>
 }
 
 export default ({children, className = defaultClassName, level = 1, size = 1, href = null, target = '_self'}) => {

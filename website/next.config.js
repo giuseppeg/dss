@@ -2,9 +2,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const DSSWebpackPlugin = require('@dss/webpack')
 
 const localIdentName =
-  process.env.NODE_ENV === 'production'
-    ? 'DSS-[hash:base32]'
-    : '[name]-[local]--[hash:base32:5]'
+  process.env.NODE_ENV === 'production' ? 'DSS-[hash:base32]' : '[name]-[local]--[hash:base32:5]'
 
 module.exports = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],

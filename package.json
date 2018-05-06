@@ -28,10 +28,11 @@
       "node",
       "browser"
     ],
-    "extends": "prettier",
+    "extends": ["prettier"],
     "ignores": [
       "compiler/src/vendor",
-      "examples"
+      "examples",
+      "website"
     ],
     "rules": {
       "capitalized-comments": 0,

@@ -10,8 +10,7 @@ module.exports = function(content) {
   const options = loaderUtils.getOptions(this) || {}
   let readableClass
   if (typeof options.localIdentName === 'string') {
-    const identName = loaderUtils
-        .interpolateName(this, options.localIdentName, { content })
+    const identName = loaderUtils.interpolateName(this, options.localIdentName, { content })
     readableClass = localName => identName.replace(/\[local]/g, localName)
   }
 

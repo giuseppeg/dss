@@ -1,11 +1,9 @@
 let LastCallWebpackPlugin
 try {
   LastCallWebpackPlugin = require('last-call-webpack-plugin')
-} catch (err) {
-  if (!/cannot find module/i.test(error.message)) {
-    return
-  }
-  console.log(`DSSWebpackPlugin depends on last-call-webpack-plugin.
+} catch (error) {
+  if (/cannot find module/i.test(error.message)) {
+    throw new Error(`DSSWebpackPlugin depends on last-call-webpack-plugin.
 
 Are you Webpack 3 user?
 Please install last-call-webpack-plugin@^2.0.0 as devDependency.
@@ -13,19 +11,15 @@ Please install last-call-webpack-plugin@^2.0.0 as devDependency.
 Are you Webpack 4 user?
 Please install last-call-webpack-plugin@^3.0.0 as devDependency.
 `)
-  process.exit(1)
+  }
+  throw error
 }
 
-const postcss = require('postcss')([
-  require('postcss-discard-duplicates'),
-  require('autoprefixer')
-])
+const postcss = require('postcss')([require('postcss-discard-duplicates'), require('autoprefixer')])
 
 function processor(assetName, asset) {
   const css = asset.source()
-  return postcss
-    .process(css, { from: assetName, to: assetName })
-    .then(result => result.css)
+  return postcss.process(css, { from: assetName, to: assetName }).then(result => result.css)
 }
 
 class DSSPlugin extends LastCallWebpackPlugin {
