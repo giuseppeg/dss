@@ -1,4 +1,4 @@
-DSS (_Deterministc StyleSheets_) is a component-oriented CSS authoring system that compiles to high-performance _Atomic CSS_-based stylesheets. Thanks to the DSS compiler and a simple `classNames` helper, DSS styles are resolved in deterministc way which respects on the application order.
+DSS (_Deterministc StyleSheets_) is a component-oriented CSS authoring system that compiles to high-performance _Atomic CSS_-based stylesheets. Thanks to the DSS compiler and a simple `classNames` helper, DSS styles are resolved in deterministc way which respects the application order.
 
 DSS is similar to CSS Modules and it is language agnostic. Styles are authored in static `.css` files, compiled down to atomic classes for small bundle size and then consumed in any language (Ruby, PHP, Python etc) that implements the super simple `classNames` helper.
 
@@ -23,7 +23,7 @@ when applied to an element one wins over the other depending on which order the 
 <div class="bar foo">hello</div>
 ```
 
-Such a feature makes it possible to tell with **confidence** which rules apply and/or overrule others at a given point in time.
+Such a feature makes it possible to tell with **confidence** which rules apply and/or overrule others at any given point in time.
 
 This website is styled with DSS and its source code is available on [GitHub](https://github.com/giuseppeg/dss/tree/master/website). We also have a handful of [examples](https://github.com/giuseppeg/dss/tree/master/examples).
 
@@ -81,7 +81,68 @@ When compiling multiple files, the JSON for each file should be written to disk 
 .dss_rfc3hq-5rjgso{color:green}
 ```
 
-Since we are using atomic classes declarations are deduped and the final bundle size should be small-ish. Remember that with atomic CSS the file size growth is logarithmic, this means that DSS also solves the critical extraction problem out of the box.
+Since we are using atomic classes, declarations are deduped and the final bundle size should be small. With atomic CSS classes the file size growth is logarithmic since DSS produces rules only for new declarations. This strategy also makes critical CSS extraction unnecessary.
 
-## Deterministic styles resolution
+## Deterministic styles resolution and the classNames helper
 
+DSS is about providing confidence when authoring CSS. This is done by resolving styles (selectors) in a deterministic way based on the application order of each class name. We think that it is very important to get a predictable result when applying two classes to an element.
+
+DSS converts declarations to atomic CSS classes. This is done by hashing each property and value and building a class name like the following:
+
+```
+dss_<hash(property)>-<hash(value)>
+```
+
+For example `color: red` is always hashed to:
+
+```
+dss_rfc3hq-169mlyl
+```
+
+and `color: green` to:
+
+
+```
+dss_rfc3hq-5rjgso
+```
+
+The first part of these class names is the same: `dss_rfc3hq-` and this is information is used to resolve styles.
+
+Given two CSS rules:
+
+```css
+.foo {
+  color: red;
+}
+
+.bar {
+  color: green;
+}
+```
+
+DSS compiles them to the following class names:
+
+```JSON
+{
+ "foo": [
+    "dss_rfc3hq-169mlyl"
+  ],
+  "bar": [
+    "dss_rfc3hq-5rjgso"
+  ]
+}
+```
+
+Once we have this information we can write a simple `classNames` helper that accepts a comma separated list of class references (`foo` and `bar` in the example) and merges them right to left:
+
+```js
+className(styles.foo, styles.bar)
+
+// dss_rfc3hq-5rjgso
+
+className(styles.bar, styles.foo)
+
+// dss_rfc3hq-169mlyl
+```
+
+This is similar to how `Object.assign` works in JavaScript, except that we are merging lists of atomic CSS classes.
