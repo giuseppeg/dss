@@ -1,6 +1,6 @@
-DSS (_Deterministc StyleSheets_) is a component-oriented CSS authoring system that compiles to high-performance _Atomic CSS_-based stylesheets. Thanks to the DSS compiler and a simple `classNames` helper, DSS styles are resolved in deterministc way which respects the application order.
+DSS (_Deterministc StyleSheets_) is a component-oriented CSS authoring system that compiles to high-performance _Atomic CSS_-based stylesheets. Thanks to the DSS compiler and a simple `classNames` helper, DSS styles are resolved in deterministc way that respects the application order.
 
-DSS is similar to CSS Modules and it is language agnostic. Styles are authored in static `.css` files, compiled down to atomic classes for small bundle size and then consumed in any language (Ruby, PHP, Python etc) that implements the super simple `classNames` helper.
+DSS is similar to CSS Modules and it is language agnostic. Styles are authored in static `.css` files, compiled down to atomic classes for smaller bundle size and then consumed in any language (Ruby, PHP, Python etc) that implements the super simple `classNames` helper.
 
 Given two class names that set the `color` to `red` and `green`:
 
@@ -13,7 +13,7 @@ Given two class names that set the `color` to `red` and `green`:
 }
 ```
 
-when applied to an element one wins over the other depending on which order the classes are applied:
+when applied to an element one class wins over the other depending on the order in which the classes are applied:
 
 ```html
 <!-- green -->
@@ -23,16 +23,18 @@ when applied to an element one wins over the other depending on which order the 
 <div class="bar foo">hello</div>
 ```
 
-Such a feature makes it possible to tell with **confidence** which rules apply and/or overrule others at any given point in time.
+Such a feature makes it possible to tell with **confidence** which rules apply or overrule others at any given point in time.
 
 This website is styled with DSS and its source code is available on [GitHub](https://github.com/giuseppeg/dss/tree/master/website). We also have a handful of [examples](https://github.com/giuseppeg/dss/tree/master/examples).
 
 ## Features
 
-* ⚡️ Automatic compilation to Static Atomic CSS classes and high-performance stylesheets
-* 🆎 Deterministic styles resolution - styles are always resolved in application order
+* ⚡️ Automatic compilation to Atomic CSS classes and high-performance stylesheets
+* 🆎 Deterministic styles resolution: styles are always resolved in application order
 * 🌎 Framework and language agnostic
+* 🤝 Preprocessors friendly
 * 💻 Standalone CLI and support for Webpack 3 and 4 with automatic vendor prefixing
+* ✂️ CSS the Best Parts
 
 ## Atomic CSS and smaller bundles
 
