@@ -148,3 +148,26 @@ className(styles.bar, styles.foo)
 ```
 
 This is similar to how `Object.assign` works in JavaScript, except that we are merging lists of atomic CSS classes.
+
+## CSS: the Best Parts
+
+DSS supports a subset of CSS that makes it possible to compile down to atomic CSS classes.
+
+Generally rules match single class selectors but there are some exception where a higher specificity is actually necessary, this is the case for states and at rules which are supported as well.
+
+Below is a comprehensive list of features:
+
+### Supported
+
+* Class selectors: `.foo`
+* CSS states: `:hover`, `:active`, `:focus`, `:visited`, `:focus-within`, `:checked`, `:required`, `[disabled]`
+* At-rules like `@media` and `@supports`
+* State-combinator-selector like `:hover > .foo` or `:focus + .bar`
+
+### Not supported
+
+* Element, id, universal and attribute selectors
+* Descendants selectors `.foo .bar`
+* Class-combinator-class selectors `.foo > .bar`
+* Pseudo elements like `:after` and `:before` since regular elements can be used instead
+
