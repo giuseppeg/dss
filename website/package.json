@@ -22,6 +22,9 @@
     "@dss/webpack": "file:../webpack",
     "@mdx-js/loader": "^0.8.0",
     "extract-text-webpack-plugin": "^3.0.2",
-    "last-call-webpack-plugin": "^2.1.2"
+    "last-call-webpack-plugin": "^2.1.2",
+    "postcss-loader": "^2.1.5",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-simple-vars": "^4.1.0"
   }
 }

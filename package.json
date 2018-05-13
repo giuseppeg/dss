@@ -17,7 +17,7 @@
     "test": "xo && cd compiler && npm test",
     "lint": "xo",
     "format": "prettier --single-quote --no-semi --write *.js {src,src/*,test,*}/*.js",
-    "clean": "rm -rf node_modules **/node_modules **/**/node_modules **/dist **/**/dist"
+    "clean": "rm -rf node_modules **/node_modules **/**/node_modules **/dist **/**/dist website/.next"
   },
   "devDependencies": {
     "prettier": "^1.11.1",
