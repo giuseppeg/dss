@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '../link'
 import classNames from '@dss/classnames'
 import styles from './index.css'
 
@@ -12,7 +12,7 @@ const Wrap = ({children, className, href, target}) => {
   if (!href) {
     return children
   }
-  return <Link href={href}><a className={classNames(styles.link, ...className)} target={target}>{children}</a></Link>
+  return <Link href={href} className={className} target={target}>{children}</Link>
 }
 
 export default ({children, className = defaultClassName, level = 1, size = 1, href = null, target = '_self'}) => {

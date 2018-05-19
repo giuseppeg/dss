@@ -1,0 +1,12 @@
+.section {
+  display: block;
+  margin-top: $u-spacing4;
+}
+
+.section:first-child {
+  margin-top: 0;
+}
+
+.subSection {
+  margin-left: $u-spacing4;
+}

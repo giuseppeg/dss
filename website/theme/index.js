@@ -9,6 +9,12 @@ const theme = {
     Color: color.Green3,
     FontSize: fontSize[3],
     FontFamily: fontFamily.Base,
+  },
+  Link: {
+    Color: color.Green3,
+    StateColor: color.Green1,
+    FontSize: fontSize[3],
+    FontFamily: fontFamily.Base,
   }
 }
 

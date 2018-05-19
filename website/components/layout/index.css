@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav {
+  padding: $u-spacing3;
+}
+
+.main {
+  flex: 1;
+  padding: $u-spacing3;
+}

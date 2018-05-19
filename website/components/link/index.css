@@ -1,0 +1,11 @@
+.root {
+  color: $LinkColor;
+  font-family: $LinkFontFamily;
+  font-size: $LinkFontSize;
+  text-decoration: none;
+}
+
+.root:hover,
+.root:focus {
+  color: $LinkStateColor;
+}
