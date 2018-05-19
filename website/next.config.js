@@ -32,7 +32,7 @@ module.exports = {
             options: {
               plugins: [
                 require('postcss-easy-import')(),
-                require('postcss-simple-vars')({ variables: require('./theme') })
+                require('postcss-simple-vars')({ variables: () => require('./theme') })
               ],
               sourceMap: false
             }
