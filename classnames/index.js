@@ -20,7 +20,7 @@
   }
 
   function classnames() {
-    var groups = Array.prototype.slice.call(arguments).filter(Boolean)
+    var groups = arguments
     var processed = {}
     var dssClasses = []
     var otherClasses = []
