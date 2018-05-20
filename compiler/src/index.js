@@ -9,13 +9,16 @@ const defaultOptions = {
   readableClass: false
 }
 
-module.exports = async (css, options = {}) => {
+let uuid = 1
+
+const createDss = (singleton = false) => async (css, options = {}) => {
   const opts = Object.assign({}, defaultOptions, options)
+  const cssHash = opts.readableClass || !singleton ? hash(css) : undefined
 
   let makeReadableClass
   if (opts.readableClass) {
     if (typeof opts.readableClass === 'function') {
-      makeReadableClass = localName => opts.readableClass(localName, hash(css))
+      makeReadableClass = localName => opts.readableClass(localName, cssHash)
     } else {
       let prefix
       if (typeof opts.filePath === 'string') {
@@ -33,15 +36,24 @@ module.exports = async (css, options = {}) => {
     }
   }
 
+  const sheetId = String(singleton ? 0 : uuid++)
   const result = await processor(css, { from: opts.filePath })
-  return compile(objectify(result.root), {
-    makeReadableClass
+  const locals = compile(objectify(result.root), {
+    makeReadableClass,
+    sheetId,
   })
+
+  return {
+    locals,
+    css: () => compile.css(sheetId),
+    reset: () => compile.reset(sheetId),
+    flush: () => {
+      const css = compile.css(sheetId)
+      compile.reset(sheetId)
+      return css
+    }
+  }
 }
-module.exports.css = () => compile.css()
-module.exports.reset = () => compile.reset()
-module.exports.flush = () => {
-  const css = compile.css()
-  compile.reset()
-  return css
-}
+
+module.exports = createDss()
+module.exports.singleton = createDss(true)

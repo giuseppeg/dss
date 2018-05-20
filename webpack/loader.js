@@ -15,11 +15,11 @@ module.exports = function(content) {
   }
 
   dss(content, { readableClass })
-    .then(compiled => {
+    .then(({ locals, flush }) => {
       const moduleExports = [
         BANNER,
-        `exports = module.exports = [[module.id, "${dss.flush()}", ""]];`,
-        `exports.locals = ${JSON.stringify(compiled)}`
+        `exports = module.exports = [[module.id, "${flush()}", ""]];`,
+        `exports.locals = ${JSON.stringify(locals)}`
       ].join('\n')
       callback(null, moduleExports)
     })

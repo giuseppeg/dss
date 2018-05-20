@@ -1,5 +1,5 @@
 const http = require('http')
-const dss = require('../../')
+const dss = require('../../').singleton
 
 const port = process.env.PORT || 3000
 
@@ -17,9 +17,8 @@ const requestHandler = (request, response) => {
   })
 
   request.on('end', async () => {
-    const classes = await dss(css, { readableClass: (localName, hash) => `Test-${localName}-${hash}` })
-    const styles = dss.css()
-    response.write(JSON.stringify({ classes, styles }))
+    const result = await dss(css, { readableClass: (localName, hash) => `Test-${localName}-${hash}` })
+    response.write(JSON.stringify({ classes: result.locals, styles: result.css() }))
     response.end()
   })
 }

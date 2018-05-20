@@ -44,3 +44,16 @@ exports[`dss compiles fallbacks 2`] = `
 
 .dss_rfc3hq-1t0ure0{color:red;color:green}"
 `;
+
+exports[`dss does not have duplicates 1`] = `
+Object {
+  "bar": Array [
+    "dss_14e3233-hlr2nt",
+  ],
+  "foo": Array [
+    "dss_14e3233-hlr2nt",
+  ],
+}
+`;
+
+exports[`dss does not have duplicates 2`] = `".dss_14e3233-hlr2nt{display:block}"`;
