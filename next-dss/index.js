@@ -41,7 +41,7 @@ module.exports = (nextConfig = {}) => {
       }).map(loader => {
         // Replace css-loader with the dss-loader
 
-        if (!/^css-loader/.test(loader.loader)) {
+        if (!loader.loader.startsWith('css-loader')) {
           return loader
         }
 
