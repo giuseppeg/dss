@@ -13,12 +13,11 @@ let uuid = 1
 
 const createDss = (singleton = false) => async (css, options = {}) => {
   const opts = Object.assign({}, defaultOptions, options)
-  const cssHash = opts.readableClass || !singleton ? hash(css) : undefined
 
   let makeReadableClass
   if (opts.readableClass) {
     if (typeof opts.readableClass === 'function') {
-      makeReadableClass = localName => opts.readableClass(localName, cssHash)
+      makeReadableClass = localName => opts.readableClass(localName, hash(css))
     } else {
       let prefix
       if (typeof opts.filePath === 'string') {
