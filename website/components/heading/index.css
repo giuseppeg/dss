@@ -4,11 +4,16 @@
   padding: 0;
   font-family: $HeadingFontFamily;
   font-size: $HeadingFontSize;
+  font-weight: $HeadingFontWeight;
   color: $HeadingColor;
 }
 
 .content {
   display: block;
+}
+
+.link {
+  color: inherit;
 }
 
 .size1 {

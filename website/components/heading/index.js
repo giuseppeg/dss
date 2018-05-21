@@ -19,7 +19,7 @@ export default ({children, className = defaultClassName, level = 1, size = 1, hr
   const Tag = `h${level}`
   return (
     <Wrap href={href} target={target} className={className.link}>
-      <Tag className={classNames(styles.tag, ...className.tag)}>
+      <Tag className={classNames(styles.tag, href && styles.link, ...className.tag)}>
         <span className={classNames(styles.content, styles[`size${size}`], ...className.content)}>{children}</span>
       </Tag>
     </Wrap>

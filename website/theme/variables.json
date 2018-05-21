@@ -8,6 +8,7 @@
     "Green2": "#159b1a",
     "Green3": "#1aac20"
   },
+  "borderRadius": [20, 16, 12, 6, 4, 2],
   "fontFamily": {
     "Base": "system-ui, sans-serif",
     "Serif": "serif",
