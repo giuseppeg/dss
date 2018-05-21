@@ -12,10 +12,16 @@ const insert = (sheetId, rule) => {
 }
 const hyph = s => s.replace(/[A-Z]|^ms/g, '-$&').toLowerCase()
 const mx = (rule, media) => (media ? `${media}{${rule}}` : rule)
-const rx = (cn, prop, val) => `.${cn}{${hyph(prop)}:${val}}`
+const rx = (cn, prop, val) => `${cn.startsWith(':') ? '' : '.'}${cn}{${hyph(prop)}:${val}}`
 const rxArr = (cn, prop, vals) =>
   `.${cn}{${vals.map(val => `${hyph(prop)}:${val}`).join(';')}}`
 const noAnd = s => s.replace(/&/g, '')
+const combinatorOrPure = (className, child) => {
+  if (child.endsWith('&')) {
+    return `${noAnd(child)}.${className}`
+  }
+  return className+noAnd(child)
+}
 
 const className = (sheetId, key, val, child, media) => {
   const _key = key + val + child + media
@@ -28,9 +34,9 @@ const className = (sheetId, key, val, child, media) => {
     }
     return className
   }
-  const className = `dss_${hash(key + media + child)}-${hash(val.toString())}`
+  const className = `dss_${hash(key + media + child.replace(/[^\w]+$/i, ''))}-${hash(val.toString())}`
   const rxFn = Array.isArray(val) ? rxArr : rx
-  const rule = mx(rxFn(className + noAnd(child), key, val), media)
+  const rule = mx(rxFn(combinatorOrPure(className, child), key, val), media)
   cache[_key] = [className, rule]
   insert(sheetId, rule)
   insertedRules[sheetId][className] = true

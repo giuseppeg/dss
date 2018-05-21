@@ -16,12 +16,14 @@ export default class Navigation extends React.PureComponent {
 
   render() {
     const {isOpen} = this.state
-    // <span className={classNames(styles.buttonLine)} />
-    // <span className={classNames(styles.buttonLine)} />
-    // <span className={classNames(styles.buttonLine)} />
+
     return (
       <React.Fragment>
-        <button aria-label="Toggle menu" aria-controls="navigation-menu" aria-expanded={isOpen} onClick={this.toggle} className={classNames(styles.button, isOpen && styles.buttonOpen)}>☰</button>
+        <button aria-label="Toggle menu" aria-controls="navigation-menu" aria-expanded={isOpen} onClick={this.toggle} className={classNames(styles.button, isOpen && styles.buttonOpen)}>
+          <span className={classNames(styles.buttonLine)} />
+          <span className={classNames(styles.buttonLine)} />
+          <span className={classNames(styles.buttonLine)} />
+        </button>
         <nav aria-label="Main navigation" id="navigation-menu" aria-hidden={!isOpen} className={classNames(styles.menu, isOpen && styles.menuOpen)}>
           <NavLink href='/'>About</NavLink>
           <NavLink href='/usage'>Usage</NavLink>

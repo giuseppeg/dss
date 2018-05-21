@@ -26,6 +26,14 @@ exports[`processor applies the nest-pseudo plugin 1`] = `
       .b {
         color: hotpink
       }
+      .c {
+        color: red;
+      }
+      .c {
+      :hover > & {
+        display: block;
+      }
+      }
     "
 `;
 

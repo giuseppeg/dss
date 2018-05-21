@@ -49,4 +49,12 @@ describe('objetify css', () => {
     `)
     ).toMatchSnapshot()
   })
+
+  it('state-combinator-class', () => {
+    expect(
+      compile(`
+      .a { :hover > & { color: blue; } }
+    `)
+    ).toMatchSnapshot()
+  })
 })

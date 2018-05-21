@@ -6,6 +6,8 @@ Object {
     "dss_rfc3hq-169mlyl",
     "dss_16bwgo5-11z5xnj",
     "dss_1u3exn4-nfznl2",
+    "dss_1u3exn4-1ysx8fe",
+    "dss_1qphpw1-hlr2nt",
   ],
 }
 `;
@@ -17,11 +19,19 @@ exports[`dss compiles 2`] = `
       @media screen and (min-width: 30px) {
         .a { color: hotpink }
       }
+
+      :hover > .a {
+        color: orange;
+      }
+
+      :hover + .a {
+        display: block;
+      }
     
 
 ⬇⬇⬇⬇
 
-.dss_1u3exn4-nfznl2:hover{color:blue}.dss_rfc3hq-169mlyl{color:red}@media screen and (min-width: 30px){.dss_16bwgo5-11z5xnj{color:hotpink}}"
+.dss_1u3exn4-nfznl2:hover{color:blue}.dss_rfc3hq-169mlyl{color:red}:hover + .dss_1qphpw1-hlr2nt{display:block}:hover > .dss_1u3exn4-1ysx8fe{color:orange}@media screen and (min-width: 30px){.dss_16bwgo5-11z5xnj{color:hotpink}}"
 `;
 
 exports[`dss compiles fallbacks 1`] = `

@@ -8,6 +8,14 @@ describe('dss', () => {
       @media screen and (min-width: 30px) {
         .a { color: hotpink }
       }
+
+      :hover > .a {
+        color: orange;
+      }
+
+      :hover + .a {
+        display: block;
+      }
     `
     const {locals, flush} = await dss(src)
 

@@ -54,3 +54,13 @@ Object {
   },
 }
 `;
+
+exports[`objetify css state-combinator-class 1`] = `
+Object {
+  ".a": Object {
+    ":hover > &": Object {
+      "color": "blue",
+    },
+  },
+}
+`;

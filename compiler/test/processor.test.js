@@ -43,6 +43,12 @@ describe('processor', () => {
       .b:hover, .b {
         color: hotpink
       }
+      .c {
+        color: red;
+      }
+      :hover > .c {
+        display: block;
+      }
     `)
     expect(css).toMatchSnapshot()
   })
@@ -147,14 +153,25 @@ describe('processor', () => {
         ['div', '[class]', '*'].map(selector =>
           expect(
             selectorsProcessor(`${selector} { color: red }`)
-          ).rejects.toThrow(/Only class selectors are allowed/)
+          ).rejects.toThrow(/Invalid selector/)
         )
       )
       await Promise.all(
         ['.a[href]', '.a .b', '.a *', '.a > .b', '.a + .b'].map(selector =>
           expect(
             selectorsProcessor(`${selector} { color: red }`)
-          ).rejects.toThrow(/Cannot use complex selectors/)
+          ).rejects.toThrow(/Invalid selector/)
+        )
+      )
+    })
+
+    it('does not throw when using state-combinator-class selectors', async () => {
+      expect.assertions(2)
+      await Promise.all(
+        [':hover > .foo', ':focus + .foo'].map(selector =>
+          expect(
+            selectorsProcessor(`${selector} { color: red }`)
+          ).resolves.toEqual(expect.objectContaining({css:`${selector} { color: red }`}))
         )
       )
     })

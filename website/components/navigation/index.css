@@ -9,24 +9,26 @@
   outline: none;
   width: $NavigationButtonSize;
   height: $NavigationButtonSize;
+  user-select: none;
+}
+
+.button:hover,
+.button:focus {
+  color: $NavigationButtonStateColor;
 }
 
 .buttonLine {
   display: block;
-  width: 100%;
+  width: $NavigationButtonSize;
   height: 2px;
-  color: $NavigationButtonColor;
-  margin-top: 6px;
+  background-color: currentColor;
+  margin-top: 3px;
+  pointer-events: none;
 }
 
 .buttonLine:first-child {
   margin-top: 0;
 }
-/*
-:hover > .buttonLine,
-:focus > .buttonLine {
-  border-color: currentColor;
-}*/
 
 .menu {
   display: none;
