@@ -43,7 +43,6 @@ module.exports = postcss.plugin('postcss-dss-selectors', () => {
           throw rule.error(
             `Invalid selector: ${selector}.`
           )
-          break
       }
 
       if (/\[/.test(selector)) {
