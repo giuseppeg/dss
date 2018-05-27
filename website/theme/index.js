@@ -3,7 +3,9 @@ const { borderRadius, color, fontFamily, fontSize, spacing } = require('./variab
 
 const theme = {
   Logo: {
-    Color: color.Green3
+    Color: color.Green3,
+    Background: color.White1,
+    Size: fontSize[0]
   },
   Heading: {
     Color: color.Green3,
@@ -21,7 +23,13 @@ const theme = {
     Color: color.Green3,
     StateColor: color.Green1,
     BorderRadius: borderRadius[5],
-    Size: fontSize[2]
+    Size: fontSize[1]
+  },
+  SideBar: {
+    BackgroundColor: color.Green3,
+    StateBackgroundColor: color.Green1,
+    Color: color.White1,
+    Spacing: spacing[2]
   }
 }
 

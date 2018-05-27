@@ -1,11 +1,17 @@
 .button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
   background: none;
   line-height: 0;
-  color: $NavigationButtonColor;
+  color: currentColor;
   border-width: 2px;
   border-style: solid;
   border-color: transparent;
   border-radius: $NavigationButtonBorderRadius;
+  padding: 2px;
   outline: none;
   width: $NavigationButtonSize;
   height: $NavigationButtonSize;
@@ -14,24 +20,20 @@
 
 .button:hover,
 .button:focus {
-  color: $NavigationButtonStateColor;
+  border-top-width: 0;
+  border-bottom-width: 0;
 }
 
 .buttonLine {
   display: block;
-  width: $NavigationButtonSize;
+  width: calc($NavigationButtonSize - 4px);
   height: 2px;
   background-color: currentColor;
-  margin-top: 3px;
-  pointer-events: none;
-}
-
-.buttonLine:first-child {
-  margin-top: 0;
 }
 
 .menu {
   display: none;
+  margin-top: $u-spacing4;
 }
 
 .menuOpen {
@@ -41,6 +43,18 @@
 .section {
   display: block;
   margin-top: $u-spacing4;
+  padding: 0 $u-spacing4;
+  color: currentColor;
+  border-left: 2px solid transparent;
+  transition: border-color ease-in-out 0.1s;
+  outline: none;
+}
+
+.section:focus-within,
+.section:hover,
+.section:focus {
+  color: currentColor;
+  border-left-color: currentColor;
 }
 
 .section:first-child {

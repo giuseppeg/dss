@@ -3,11 +3,38 @@
   flex-wrap: wrap;
 }
 
-.nav {
-  padding: $u-spacing3;
+.side {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 100%;
+  padding: $SideBarSpacing;
+  background-color: $SideBarBackgroundColor;
+  color: $SideBarColor;
+}
+
+.sideOpen {
+  background-color: $SideBarStateBackgroundColor;
+}
+
+@media (min-width: 680px) {
+  .side {
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+.logo {
+  font-size: $LogoSize;
+}
+
+.spacer {
+  height: $SideBarSpacing;
 }
 
 .main {
   flex: 1;
-  padding: $u-spacing3;
+  padding: $SideBarSpacing;
 }
