@@ -9,7 +9,7 @@ module.exports = postcss.plugin('postcss-dss-nest-pseudo', () => {
       }
 
       let parentSelector = parts[0]
-      let selector = ':' + parts.slice(1)
+      let selector = ':' + parts.slice(1).join(':')
       // :hover > .foo
       if (parts[0] === '') {
         const delimiter = selector.match(/[>~+]/)

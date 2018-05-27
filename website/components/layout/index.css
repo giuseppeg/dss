@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-wrap: wrap;
+  border-top: $SideBarSpacing solid $SideBarBackgroundColor;
 }
 
 .side {
@@ -34,7 +35,12 @@
   height: $SideBarSpacing;
 }
 
+.navigationButton {
+  margin: $SideBarNavigationSpacing 0;
+}
+
 .main {
   flex: 1;
   padding: $SideBarSpacing;
+  color: $MainColor;
 }

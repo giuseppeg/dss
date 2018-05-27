@@ -16,6 +16,13 @@
   width: $NavigationButtonSize;
   height: $NavigationButtonSize;
   user-select: none;
+  transition: border ease 0.2s
+}
+
+.button:active,
+.button:focus:active {
+  border-top-width: 4px;
+  border-bottom-width: 4px;
 }
 
 .button:hover,
@@ -33,7 +40,7 @@
 
 .menu {
   display: none;
-  margin-top: $u-spacing4;
+  padding-top: $u-spacing4;
 }
 
 .menuOpen {
@@ -46,8 +53,9 @@
   padding: 0 $u-spacing4;
   color: currentColor;
   border-left: 2px solid transparent;
-  transition: border-color ease-in-out 0.1s;
+  transition: border-color ease-out 0.3s;
   outline: none;
+  font-weight: normal;
 }
 
 .section:focus-within,

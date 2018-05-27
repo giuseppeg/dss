@@ -3,6 +3,7 @@
   font-family: $LinkFontFamily;
   font-size: $LinkFontSize;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .root:hover,

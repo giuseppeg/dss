@@ -1,0 +1,31 @@
+.p {
+  font-family: $MarkdownPFontFamily;
+  font-size: $MarkdownPFontSize;
+  line-height: 1.4
+}
+
+.p:first-child {
+  margin-top: 0
+}
+
+.p:last-child {
+  margin-bottom: 0
+}
+
+.code {
+  display: inline-block;
+  font-family: $MarkdownCodeFontFamily;
+  font-size: $MarkdownCodeFontSize;
+  color: $MarkdownCodeColor;
+  background-color: $MarkdownCodeBackgroundColor;
+  padding: $MarkdownCodeSpacing calc($MarkdownCodeSpacing * 2);
+  border-radius: $MarkdownCodeBorderRadius;
+  line-height: 1.4
+}
+
+.codeBlock {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: calc($MarkdownCodeSpacing * 4);
+}

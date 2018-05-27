@@ -7,7 +7,7 @@ function generateVariables(variables, prefix = '') {
     const propVal = variables[prop]
     if (Array.isArray(propVal)) {
       propVal.forEach((val, index) => {
-        vars[`${prefix}${prop}${index+1}`] = fixNumber(val)
+        vars[`${prefix}${prop}${index + 1}`] = fixNumber(val)
       })
     } else {
       Object.keys(propVal).forEach(subProp => {

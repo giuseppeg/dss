@@ -8,7 +8,6 @@ const processor = postcss([
   splitGroupedSelectorsPlugin,
   selectorsPlugin,
   nestAtRulesPlugin,
-  nestPseudoPlugin
+  nestPseudoPlugin,
 ])
-module.exports = (css, opts = { from: undefined }) =>
-  processor.process(css, opts)
+module.exports = (css, opts = { from: undefined }) => processor.process(css, opts)

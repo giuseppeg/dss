@@ -104,8 +104,7 @@ describe('processor', () => {
   })
 
   describe('validation', () => {
-    const selectorsProcessor = css =>
-      postcss([selectorsPlugin]).process(css, { from: undefined })
+    const selectorsProcessor = css => postcss([selectorsPlugin]).process(css, { from: undefined })
 
     describe('throws when it detecs duplicated selectors', async () => {
       it('simple', () =>
@@ -141,9 +140,9 @@ describe('processor', () => {
       expect.assertions(4)
       return Promise.all(
         ['.a:before', '.a:after', '.a::before', '.a::after'].map(selector =>
-          expect(
-            selectorsProcessor(`${selector} { color: red }`)
-          ).rejects.toThrow(/Detected pseudo-element/)
+          expect(selectorsProcessor(`${selector} { color: red }`)).rejects.toThrow(
+            /Detected pseudo-element/
+          )
         )
       )
     })
@@ -152,16 +151,16 @@ describe('processor', () => {
       expect.assertions(8)
       await Promise.all(
         ['div', '[class]', '*'].map(selector =>
-          expect(
-            selectorsProcessor(`${selector} { color: red }`)
-          ).rejects.toThrow(/Invalid selector/)
+          expect(selectorsProcessor(`${selector} { color: red }`)).rejects.toThrow(
+            /Invalid selector/
+          )
         )
       )
       await Promise.all(
         ['.a[href]', '.a .b', '.a *', '.a > .b', '.a + .b'].map(selector =>
-          expect(
-            selectorsProcessor(`${selector} { color: red }`)
-          ).rejects.toThrow(/Invalid selector/)
+          expect(selectorsProcessor(`${selector} { color: red }`)).rejects.toThrow(
+            /Invalid selector/
+          )
         )
       )
     })
@@ -170,9 +169,9 @@ describe('processor', () => {
       expect.assertions(2)
       await Promise.all(
         [':hover > .foo', ':focus + .foo'].map(selector =>
-          expect(
-            selectorsProcessor(`${selector} { color: red }`)
-          ).resolves.toEqual(expect.objectContaining({css:`${selector} { color: red }`}))
+          expect(selectorsProcessor(`${selector} { color: red }`)).resolves.toEqual(
+            expect.objectContaining({ css: `${selector} { color: red }` })
+          )
         )
       )
     })
@@ -185,7 +184,7 @@ describe('processor', () => {
       @media (min-width: 10px) { body { color: gree } }
       :hover > .foo { color: red }
     `
-    const {css} = await postcss([sortAtRulesPlugin]).process(src, { from: undefined })
+    const { css } = await postcss([sortAtRulesPlugin]).process(src, { from: undefined })
     expect(css).toMatchSnapshot()
   })
 })

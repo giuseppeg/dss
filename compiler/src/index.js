@@ -6,7 +6,7 @@ const compile = require('./compile')
 
 const defaultOptions = {
   filePath: undefined,
-  readableClass: false
+  readableClass: false,
 }
 
 let uuid = 1
@@ -50,7 +50,7 @@ const createDss = (singleton = false) => async (css, options = {}) => {
       const css = compile.css(sheetId)
       compile.reset(sheetId)
       return css
-    }
+    },
   }
 }
 

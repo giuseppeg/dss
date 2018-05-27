@@ -33,8 +33,8 @@ export default class Layout extends React.Component {
               <Logo color={LogoColor} backgroundColor={LogoBackground} />
             </div>
             <div className={classNames(styles.spacer)} />
-            <div>
-              <Navigation open={this.state.isNavigationOpen} onPress={this.toggle} />
+            <div className={classNames(styles.navigation)}>
+              <Navigation open={this.state.isNavigationOpen} onPress={this.toggle} className={{ button: styles.navigationButton }} />
             </div>
           </div>
           <main className={classNames(styles.main)}>{ children }</main>

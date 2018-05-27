@@ -4,9 +4,9 @@ import Link from '../link'
 
 const NavLink = props => <Link {...props} className={[classNames(styles.section)]} />
 
-const Navigation = ({open, onPress}) => (
+const Navigation = ({open, onPress, className = { button: null }}) => (
   <React.Fragment>
-    <button aria-label="Toggle menu" aria-controls="navigation-menu" aria-expanded={open} onClick={onPress} className={classNames(styles.button, open && styles.buttonOpen)}>
+    <button aria-label="Toggle menu" aria-controls="navigation-menu" aria-expanded={open} onClick={onPress} className={classNames(styles.button, className.button, open && styles.buttonOpen)}>
       <span className={classNames(styles.buttonLine)} />
       <span className={classNames(styles.buttonLine)} />
       <span className={classNames(styles.buttonLine)} />

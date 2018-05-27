@@ -17,7 +17,7 @@ describe('dss', () => {
         display: block;
       }
     `
-    const {locals, flush} = await dss(src)
+    const { locals, flush } = await dss(src)
 
     expect(locals).toMatchSnapshot()
     expect(src + '\n\n⬇⬇⬇⬇\n\n' + flush()).toMatchSnapshot()
@@ -30,7 +30,7 @@ describe('dss', () => {
         color: green;
       }
     `
-    const {locals, flush} = await dss(src)
+    const { locals, flush } = await dss(src)
 
     expect(locals).toMatchSnapshot()
     expect(src + '\n\n⬇⬇⬇⬇\n\n' + flush()).toMatchSnapshot()
@@ -48,7 +48,7 @@ describe('dss', () => {
   })
 
   it('does not have duplicates', async () => {
-    const {locals, css} = await dss('.foo { display: block } .bar { display: block }')
+    const { locals, css } = await dss('.foo { display: block } .bar { display: block }')
     expect(locals).toMatchSnapshot()
     expect(css()).toMatchSnapshot()
   })

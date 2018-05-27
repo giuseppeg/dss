@@ -1,12 +1,13 @@
 {
   "color": {
-    "White1": "#fff",
-    "Black1": "#000",
-    "Black2": "#111",
-    "Black3": "#222",
-    "Green1": "#138d18",
-    "Green2": "#159b1a",
-    "Green3": "#1aac20"
+    "White": "#fff",
+    "Black": "#000",
+    "Black1": "#111",
+    "Black2": "#222",
+    "Blue": "#3467d6",
+    "Blue1": "#1e3e83",
+    "Blue2": "#2b57b6",
+    "Blue6": "#eff4ff"
   },
   "borderRadius": [20, 16, 12, 6, 4, 2],
   "fontFamily": {
