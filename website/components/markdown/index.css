@@ -1,7 +1,7 @@
 .p {
   font-family: $MarkdownPFontFamily;
   font-size: $MarkdownPFontSize;
-  line-height: 1.4
+  line-height: 1.4;
 }
 
 .p:first-child {
@@ -28,4 +28,14 @@
   width: 100%;
   box-sizing: border-box;
   padding: calc($MarkdownCodeSpacing * 4);
+}
+
+.inlineCodeBlock {
+  white-space: nowrap;
+}
+
+.ul {
+  font-family: $MarkdownULFontFamily;
+  font-size: $MarkdownULFontSize;
+  list-style: $MarkdownULListStyle;
 }

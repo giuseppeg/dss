@@ -8,16 +8,24 @@ const headings = [1, 2, 3, 4, 5, 6].reduce((components, level) => {
   return components
 }, {})
 
-const p = ({children}) => <p className={classNames(styles.p)}>{children}</p>
-
-const code = ({className = [], ...props}) => {
-  const isBlock = className.some(c => c.indexOf('language-') === 0)
-  return <code {...props} className={classNames(styles.code, isBlock && styles.codeBlock, className)} />
+const p = ({children, ...props}) => {
+  console.log(children)
+  return <p className={classNames(styles.p)}>{children}</p>
 }
+
+const Code = ({className = [], isBlock = true, ...props}) => {
+  return <code {...props} className={classNames(styles.code, isBlock ? styles.codeBlock : styles.inlineCodeBlock, className)} />
+}
+
+const inlineCode = props => <Code {...props} isBlock={false} />
+
+const ul = ({children}) => <ul className={classNames(styles.ul)}>{children}</ul>
 
 export default {
   ...headings,
   a: Link,
   p,
-  code,
+  inlineCode,
+  code: Code,
+  ul,
 }

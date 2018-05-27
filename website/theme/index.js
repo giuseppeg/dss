@@ -48,6 +48,11 @@ const theme = {
     Spacing: borderRadius[4],
     BorderRadius: borderRadius[4],
   },
+  MarkdownUL: {
+    FontSize: fontSize[3],
+    FontFamily: fontFamily.Base,
+    ListStyle: 'square',
+  },
 }
 
 exports = module.exports = Object.assign(
