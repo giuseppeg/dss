@@ -13,18 +13,20 @@ const jsSheets = glob.sync(globPattern)
 
 const compilePromises = jsSheets.map(filePath => {
   const css = read(filePath)
-  return dss(css, { filePath, readableClass: process.env.NODE_ENV !== 'production' })
+  return dss.singleton(css, { filePath, readableClass: process.env.NODE_ENV !== 'production' })
 })
 
 Promise.all(compilePromises).then(results => {
-  results.forEach((compiled, i) => {
+  let flush
+  results.forEach(({locals, _flush}, i) => {
     fs.writeFileSync(
       path.resolve(path.join(dist, path.basename(jsSheets[i])+'.json')),
-      JSON.stringify(compiled, null, 2)
+      JSON.stringify(locals, null, 2)
     )
+    flush = _flush
   })
 
-  fs.writeFileSync(path.resolve(path.join(dist, bundleFilename || 'index.css')), dss.css())
+  fs.writeFileSync(path.resolve(path.join(dist, bundleFilename || 'index.css')), flush())
 }).catch(e => {
   console.error(e)
   process.exit(1)
