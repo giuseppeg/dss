@@ -94,3 +94,12 @@ exports[`processor mixed nest-atrules and nest-pseudo 1`] = `
         }
     "
 `;
+
+exports[`processor moves at rules at the end of the file 1`] = `
+"
+      div { color: red }
+      :hover > .foo { color: red }
+      @media (min-width: 1px) { body { color: red } }
+      @media (min-width: 10px) { body { color: gree } }
+    "
+`;

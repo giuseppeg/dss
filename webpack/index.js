@@ -15,7 +15,7 @@ Please install last-call-webpack-plugin@^3.0.0 as devDependency.
   throw error
 }
 
-const postcss = require('postcss')([require('postcss-discard-duplicates'), require('autoprefixer')])
+const postcss = require('postcss')([require('postcss-discard-duplicates'), require('autoprefixer'), require('@dss/compiler/src/plugins/sort-at-rules')])
 
 function processor(assetName, asset) {
   const css = asset.source()

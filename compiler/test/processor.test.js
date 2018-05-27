@@ -1,5 +1,6 @@
 const postcss = require('postcss')
 const selectorsPlugin = require('../src/plugins/selectors')
+const sortAtRulesPlugin = require('../src/plugins/sort-at-rules')
 const processor = require('../src/processor')
 
 describe('processor', () => {
@@ -175,5 +176,16 @@ describe('processor', () => {
         )
       )
     })
+  })
+
+  it('moves at rules at the end of the file', async () => {
+    const src = `
+      @media (min-width: 1px) { body { color: red } }
+      div { color: red }
+      @media (min-width: 10px) { body { color: gree } }
+      :hover > .foo { color: red }
+    `
+    const {css} = await postcss([sortAtRulesPlugin]).process(src, { from: undefined })
+    expect(css).toMatchSnapshot()
   })
 })
