@@ -1,4 +1,3 @@
-import classNames from '@dss/classnames'
 import styles from './index.css'
 import Link from '../link'
 import Head from 'next/head'
@@ -19,6 +18,7 @@ export default class Layout extends React.Component {
 
   render() {
     const { children, title = 'This is the default title' } = this.props
+    const { isNavigationOpen } = this.state
     return (
       <React.Fragment>
         <Head>
@@ -27,17 +27,17 @@ export default class Layout extends React.Component {
           <meta name='viewport' content='initial-scale=1.0, width=device-width'/>
         </Head>
 
-        <div className={classNames(styles.container)}>
-          <div className={classNames(styles.side, this.state.isNavigationOpen && styles.sideOpen)}>
-            <div className={classNames(styles.logo)}>
+        <div className={[styles.container]}>
+          <div className={[styles.side, isNavigationOpen && styles.sideOpen]}>
+            <div className={[styles.logo]}>
               <Logo color={LogoColor} backgroundColor={LogoBackground} />
             </div>
-            <div className={classNames(styles.spacer)} />
-            <div className={classNames(styles.navigation)}>
-              <Navigation open={this.state.isNavigationOpen} onPress={this.toggle} className={{ button: styles.navigationButton }} />
+            <div className={[styles.spacer]} />
+            <div className={[styles.navigation]}>
+              <Navigation open={isNavigationOpen} onPress={this.toggle} className={{ button: styles.navigationButton }} />
             </div>
           </div>
-          <main className={classNames(styles.main)}>{ children }</main>
+          <main className={[styles.main]}>{ children }</main>
         </div>
       </React.Fragment>
     )

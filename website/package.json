@@ -17,11 +17,14 @@
     "@mdx-js/mdx": "^0.8.0",
     "@zeit/next-mdx": "^1.1.0",
     "next": "^6.0.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "system-font-css": "^2.0.2",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^2.1.5",
-    "postcss-simple-vars": "^4.1.0"
+    "postcss-simple-vars": "^4.1.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "system-font-css": "^2.0.2"
+  },
+  "devDependencies": {
+    "babel-plugin-classnames": "^0.1.0"
   }
 }
