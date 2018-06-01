@@ -45,6 +45,8 @@
 
 .menuOpen {
   display: block;
+  position: relative;
+  animation: menuFade 0.3s ease-in, menuSlide 0.2s ease-in;
 }
 
 .section {
@@ -56,6 +58,7 @@
   transition: border-color ease-out 0.3s;
   outline: none;
   font-weight: normal;
+  margin-left: 2px;
 }
 
 .section:focus-within,
@@ -71,4 +74,17 @@
 
 .subSection {
   margin-left: $u-spacing4;
+  position: relative;
+  left: 4px;
+}
+
+@keyframes menuFade {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+@keyframes menuSlide {
+  0% { left: -100% }
+  80% { left: 30px }
+  100% { left: 0 }
 }
