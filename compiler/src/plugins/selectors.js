@@ -5,6 +5,10 @@ module.exports = postcss.plugin('postcss-dss-selectors', () => {
     const processed = {}
     root.walkRules(rule => {
       const { selector, parent } = rule
+      if (parent && parent.type === 'atrule') {
+        return
+      }
+
       const params = parent && parent.params ? parent.params : ''
 
       if (processed[params + selector]) {

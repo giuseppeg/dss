@@ -12,8 +12,10 @@ const insert = (sheetId, rule) => {
 }
 const hyph = s => s.replace(/[A-Z]|^ms/g, '-$&').toLowerCase()
 const mx = (rule, media) => (media ? `${media}{${rule}}` : rule)
-const rx = (cn, prop, val) => `${cn.startsWith(':') ? '' : '.'}${cn}{${hyph(prop)}:${val}}`
-const rxArr = (cn, prop, vals) => `.${cn}{${vals.map(val => `${hyph(prop)}:${val}`).join(';')}}`
+const propVal = (prop, val) =>
+  (Array.isArray(val) ? val : [val]).map(val => `${hyph(prop)}:${val}`).join(';')
+const rx = (cn, prop, val) => `${cn.startsWith(':') ? '' : '.'}${cn}{${propVal(prop, val)}}`
+const rxArr = (cn, prop, vals) => `.${cn}{${propVal(prop, vals)}}`
 const noAnd = s => s.replace(/&/g, '')
 const combinatorOrPure = (className, child) => {
   if (child.endsWith('&')) {
@@ -44,16 +46,16 @@ const className = (sheetId, key, val, child, media) => {
   return className
 }
 
-const parse = (sheetId, obj, child = '', media) =>
+const parse = (sheetId, obj, child = '', media, callback) =>
   Object.keys(obj).map(key => {
     const val = obj[key]
     if (val === null) return ''
     if (Object.prototype.toString.call(val) === '[object Object]') {
       const m2 = key.charAt(0) === '@' ? key : null
       const c2 = m2 ? child : child + key
-      return parse(sheetId, val, c2, m2 || media)
+      return parse(sheetId, val, c2, m2 || media, callback)
     }
-    return className(sheetId, key, val, child, media)
+    return callback(sheetId, key, val, child, media)
   })
 
 module.exports = (styles, opts = {}) => {
@@ -64,8 +66,31 @@ module.exports = (styles, opts = {}) => {
   }
 
   return Object.keys(styles).reduce((acc, key) => {
+    // Insert non nested at rules like @keyframes as-is
+    // since they don't have selectors associated to them.
+    if (key.charAt(0) === '@') {
+      ;(Array.isArray(styles[key]) ? styles[key] : [styles[key]]).forEach(styles => {
+        const steps = {}
+        parse(sheetId, styles, '', null, (sheetId, prop, val, child) => {
+          const props = propVal(prop, val)
+          if (steps[child]) {
+            steps[child].push(props)
+          } else {
+            steps[child] = [props]
+          }
+        })
+        const css = Object.keys(steps).reduce((css, step) => {
+          css += mx(steps[step].join(';'), step)
+          return css
+        }, '')
+
+        insert(sheetId, mx(css, key))
+      })
+      return acc
+    }
+
     const jsKey = key.replace(/^\./, '')
-    acc[jsKey] = flatten(parse(sheetId, styles[key]))
+    acc[jsKey] = flatten(parse(sheetId, styles[key], undefined, undefined, className))
     if (typeof opts.makeReadableClass === 'function') {
       const readableClass = opts.makeReadableClass(jsKey)
       acc[jsKey].unshift(readableClass)

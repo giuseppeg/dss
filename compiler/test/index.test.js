@@ -76,4 +76,27 @@ describe('dss', () => {
     expect(rulesLength(call4.css())).toBe(0)
     expect(rulesLength(css)).toBe(4)
   })
+
+  it('compiles keyframes', async () => {
+    // @keyframes fade {0% { opacity:0 } 100% { opacity:1}}
+    const src = `
+      @font-face {
+        font-family: 'foo';
+        src: url(http://b.ar)
+      }
+      .a {
+        transition: fade 0.5s easy-out;
+      }
+      @keyframes some {0% { opacity:0 } 100% { opacity:1}}
+      @keyframes fade {0% { opacity:0 } 100% { opacity:1}}
+      @keyframes fade {
+        0% { opacity:0; margin-left: 0; }
+        100% { opacity:1; margin-left: 100; }
+      }
+    `
+    const { locals, flush } = await dss(src)
+
+    expect(locals).toMatchSnapshot()
+    expect(src + '\n\n⬇⬇⬇⬇\n\n' + flush()).toMatchSnapshot()
+  })
 })

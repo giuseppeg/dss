@@ -55,6 +55,36 @@ exports[`dss compiles fallbacks 2`] = `
 .dss_rfc3hq-1t0ure0{color:red;color:green}"
 `;
 
+exports[`dss compiles keyframes 1`] = `
+Object {
+  "a": Array [
+    "dss_8obr3c-13wqbd",
+  ],
+}
+`;
+
+exports[`dss compiles keyframes 2`] = `
+"
+      @font-face {
+        font-family: 'foo';
+        src: url(http://b.ar)
+      }
+      .a {
+        transition: fade 0.5s easy-out;
+      }
+      @keyframes some {0% { opacity:0 } 100% { opacity:1}}
+      @keyframes fade {0% { opacity:0 } 100% { opacity:1}}
+      @keyframes fade {
+        0% { opacity:0; margin-left: 0; }
+        100% { opacity:1; margin-left: 100; }
+      }
+    
+
+⬇⬇⬇⬇
+
+.dss_8obr3c-13wqbd{transition:fade 0.5s easy-out}@font-face{font-family:'foo';src:url(http://b.ar)}@keyframes fade{0%{opacity:0;margin-left:0}100%{opacity:1;margin-left:100}}@keyframes fade{0%{opacity:0}100%{opacity:1}}@keyframes some{0%{opacity:0}100%{opacity:1}}"
+`;
+
 exports[`dss does not have duplicates 1`] = `
 Object {
   "bar": Array [

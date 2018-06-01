@@ -175,6 +175,13 @@ describe('processor', () => {
         )
       )
     })
+
+    it('does not throw when using keyframes', async () => {
+      expect.assertions(1)
+      expect(processor('@keyframes fade {0% { opacity:0 } 100% { opacity:1}}')).resolves.toEqual(
+        expect.objectContaining({ css: '@keyframes fade {0% { opacity:0 } 100% { opacity:1}}' })
+      )
+    })
   })
 
   it('moves at rules at the end of the file', async () => {
