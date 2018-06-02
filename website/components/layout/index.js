@@ -19,6 +19,7 @@ export default class Layout extends React.Component {
   render() {
     const { children, title = 'This is the default title' } = this.props
     const { isNavigationOpen } = this.state
+
     return (
       <React.Fragment>
         <Head>

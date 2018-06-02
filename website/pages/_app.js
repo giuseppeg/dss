@@ -1,6 +1,7 @@
 import DefaultApp, { Container } from 'next/app'
 import Layout from '../components/layout'
 import components from '../components/markdown'
+import CurrentPath from '../components/navigation/CurrentPath'
 
 export default class App extends DefaultApp {
   static async getInitialProps({ Component, router, ctx }) {
@@ -14,13 +15,19 @@ export default class App extends DefaultApp {
   }
 
   render() {
-    const { Component, pageProps } = this.props
+    const {
+      Component,
+      pageProps,
+      router: { route },
+    } = this.props
 
     return (
       <Container>
-        <Layout>
-          <Component {...pageProps} components={components} />
-        </Layout>
+        <CurrentPath.Provider value={route}>
+          <Layout>
+            <Component {...pageProps} components={components} />
+          </Layout>
+        </CurrentPath.Provider>
       </Container>
     )
   }

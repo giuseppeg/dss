@@ -1,7 +1,11 @@
 import styles from './index.css'
 import Link from '../link'
+import CurrentPath from './CurrentPath'
 
-const NavLink = props => <Link {...props} className={[styles.section]} />
+const NavLink = props => <CurrentPath.Consumer>{
+  currentPath =>
+    <Link {...props} className={[styles.section, currentPath === props.href && styles.sectionActive]} />
+}</CurrentPath.Consumer>
 
 const Navigation = ({open, onPress, className = { button: null }}) => (
   <React.Fragment>

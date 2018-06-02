@@ -54,7 +54,9 @@
   margin-top: $u-spacing4;
   padding: 0 $u-spacing4;
   color: currentColor;
-  border-left: 2px solid transparent;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: transparent;
   transition: border-color ease-out 0.3s;
   outline: none;
   font-weight: normal;
@@ -63,7 +65,8 @@
 
 .section:focus-within,
 .section:hover,
-.section:focus {
+.section:focus,
+.sectionActive {
   color: currentColor;
   border-left-color: currentColor;
 }
