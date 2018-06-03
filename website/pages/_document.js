@@ -6,6 +6,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
+          <style>{`* { box-sizing: border-box; }`}</style>
           <link rel="stylesheet" href="/_next/static/index.css" />
         </Head>
         <Body>

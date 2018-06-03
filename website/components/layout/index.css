@@ -9,22 +9,15 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   width: 100%;
+  box-sizing: border-box;
   padding: $SideBarSpacing;
   background-color: $SideBarBackgroundColor;
   color: $SideBarColor;
+  max-width: 100%;
 }
 
 .sideOpen {
   background-color: $SideBarStateBackgroundColor;
-}
-
-@media (min-width: 680px) {
-  .side {
-    width: auto;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  }
 }
 
 .logo {
@@ -41,6 +34,32 @@
 
 .main {
   flex: 1;
-  padding: $SideBarSpacing;
+  background-color: $MainBackgroundColor;
+  max-width: 100%;
+}
+
+.mainContent {
+  background-color: $MainContentBackgroundColor;
   color: $MainColor;
+  max-width: 960px;
+  padding: $SideBarSpacing $MainSpacing;
+}
+
+@media (min-width: 680px) {
+  .container {
+    flex-wrap: nowrap;
+  }
+
+  .side {
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1025px) {
+  .mainContent {
+    padding: calc($LogoSize + $SideBarSpacing * 2) calc(($LogoSize + $SideBarSpacing * 2) * 0.9);
+  }
 }

@@ -29,12 +29,15 @@ const theme = {
     BackgroundColor: color.Blue,
     StateBackgroundColor: color.Blue2,
     Color: color.White,
-    Spacing: spacing[2],
+    Spacing: spacing[1],
     // LogoSize - NavigationButtonSize
     NavigationSpacing: fontSize[0] - fontSize[1],
   },
   Main: {
+    BackgroundColor: color.Blue,
+    ContentBackgroundColor: color.White,
     Color: color.Blue1,
+    Spacing: spacing[0],
   },
   MarkdownP: {
     FontSize: fontSize[3],

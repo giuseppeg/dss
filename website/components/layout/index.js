@@ -7,6 +7,17 @@ import Navigation from '../navigation'
 import { LogoColor, LogoBackground } from '../../theme'
 
 export default class Layout extends React.Component {
+  media = typeof window !== 'undefined' ? window.matchMedia('(min-width: 1150px)') : null
+
+  onMedia = ({matches}) => {
+    if (!this.state.isNavigationOpen && matches) {
+      this.setState({isNavigationOpen: true})
+    }
+    if (this.state.isNavigationOpen && !matches) {
+      this.setState({isNavigationOpen: false})
+    }
+  }
+
   state = {
     isNavigationOpen: false
   }
@@ -14,6 +25,16 @@ export default class Layout extends React.Component {
   toggle = e => {
     e.preventDefault()
     this.setState(({isNavigationOpen}) => ({ isNavigationOpen: !isNavigationOpen }))
+  }
+
+  componentDidMount() {
+    this.media = window.matchMedia('(min-width: 1150px)')
+    this.media.addListener(this.onMedia)
+    this.onMedia({ matches: this.media.matches })
+  }
+
+  componentWillUnmount() {
+    this.media.removeListener(this.onMedia)
   }
 
   render() {
@@ -38,7 +59,9 @@ export default class Layout extends React.Component {
               <Navigation open={isNavigationOpen} onPress={this.toggle} className={{ button: styles.navigationButton }} />
             </div>
           </div>
-          <main className={[styles.main]}>{ children }</main>
+          <main className={[styles.main]}>
+            <div className={[styles.mainContent]}>{ children }</div>
+          </main>
         </div>
       </React.Fragment>
     )
