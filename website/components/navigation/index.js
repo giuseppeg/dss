@@ -22,7 +22,7 @@ const Navigation = ({open, onPress, className = { button: null }}) => (
         <NavLink href='/atomic-css'>Atomic CSS</NavLink>
         <NavLink href='/how-it-works'>Determinism</NavLink>
         <NavLink href='/classnames-helper'>The classNames helper</NavLink>
-        <NavLink href='/supported-css-features'>CSS subset</NavLink>
+        <NavLink href='/supported-css-features'>CSS features and rules</NavLink>
         <NavLink href='/webpack'>Webpack</NavLink>
         <NavLink href='/preprocessors'>SASS and Preprocessors</NavLink>
       </div>

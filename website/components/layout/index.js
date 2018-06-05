@@ -38,13 +38,13 @@ export default class Layout extends React.Component {
   }
 
   render() {
-    const { children, title = 'This is the default title' } = this.props
+    const { children, title = 'Deterministic StyleSheets' } = this.props
     const { isNavigationOpen } = this.state
 
     return (
       <React.Fragment>
         <Head>
-          <title>{ title }</title>
+          <title>{ `DSS | ${title}` }</title>
           <meta charSet='utf-8'/>
           <meta name='viewport' content='initial-scale=1.0, width=device-width'/>
         </Head>

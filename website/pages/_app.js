@@ -20,11 +20,12 @@ export default class App extends DefaultApp {
       pageProps,
       router: { route },
     } = this.props
+    const meta = Component.meta || {}
 
     return (
       <Container>
         <CurrentPath.Provider value={route}>
-          <Layout>
+          <Layout title={meta.title}>
             <Component {...pageProps} components={components} />
           </Layout>
         </CurrentPath.Provider>

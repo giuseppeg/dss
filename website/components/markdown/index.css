@@ -1,7 +1,9 @@
 .p {
   font-family: $MarkdownPFontFamily;
   font-size: $MarkdownPFontSize;
-  line-height: 1.4;
+  line-height: 1.5;
+  margin-top: $MarkdownPFontSize;
+  margin-bottom: $MarkdownPFontSize;
 }
 
 .p:first-child {
@@ -18,9 +20,11 @@
   font-size: $MarkdownCodeFontSize;
   color: $MarkdownCodeColor;
   background-color: $MarkdownCodeBackgroundColor;
-  padding: $MarkdownCodeSpacing calc($MarkdownCodeSpacing * 2);
+  padding: 2px calc($MarkdownCodeSpacing * 2);
   border-radius: $MarkdownCodeBorderRadius;
-  line-height: 1.4
+  line-height: 1.4;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 
 .codeBlock {
@@ -38,4 +42,5 @@
   font-family: $MarkdownULFontFamily;
   font-size: $MarkdownULFontSize;
   list-style: $MarkdownULListStyle;
+  line-height: 1.5;
 }
