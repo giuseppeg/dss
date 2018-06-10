@@ -2,6 +2,8 @@
 
 DSS (_Deterministic StyleSheets_) is a component-oriented CSS authoring system that compiles to high-performance _atomic CSS classes_-based stylesheets.
 
+DSS works like CSS Modules except that styles resolution is deterministic, CSS is compiled to atomic classes and the final bundle is very small.
+
 ## Features
 
 * ⚡️ Automatic compilation to Atomic CSS classes and high-performance stylesheets
@@ -16,7 +18,7 @@ DSS (_Deterministic StyleSheets_) is a component-oriented CSS authoring system t
 
 Thanks to the DSS compiler and a simple `classNames` helper, DSS styles are resolved in deterministic way that respects the application order.
 
-DSS is similar to CSS Modules and it is language agnostic. Styles are authored in static `.css` files, compiled down to atomic CSS classes for smaller bundle size and then consumed in any language (Ruby, PHP, Python etc) that implements the super simple `classNames` helper.
+DSS is language agnostic. Styles are authored in static `.css` files, compiled down to atomic CSS classes for smaller bundle size and then consumed in any language (Ruby, PHP, Python etc) that implements the super simple `classNames` helper.
 
 Given two class names that set the `color` to `red` and `green`:
 
