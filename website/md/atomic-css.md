@@ -102,13 +102,13 @@ const source1 = fs.readFileSync('./component1/styles.css')
 
 const first = dss(source).then(({ locals }) => {
   // locals contains the JSON above
-  fs.writeFileSync('./component1/styles.css', locals)
+  fs.writeFileSync('./component1/styles.css.json', JSON.stringify(locals))
 })
 
 const source2 = fs.readFileSync('./component2/styles.css')
 
 const second = dss(source).then(({ locals, css, flush }) => {
-  fs.writeFileSync('./component2/styles.css', locals)
+  fs.writeFileSync('./component2/styles.css.json', JSON.stringify(locals))
 
   getCSS = flush
 })

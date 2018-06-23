@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   border-top: $SideBarSpacing solid $SideBarBackgroundColor;
+  min-height: 100vh;
 }
 
 .side {
@@ -42,6 +43,7 @@
   background-color: $MainContentBackgroundColor;
   color: $MainColor;
   max-width: 960px;
+  min-height: 100%;
   padding: $SideBarSpacing $MainSpacing;
 }
 

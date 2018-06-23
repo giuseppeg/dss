@@ -30,7 +30,7 @@ const Navigation = ({open, onPress, className = { button: null }}) => (
         <NavLink href='/classnames-helper'>The classNames helper</NavLink>
         <NavLink href='/supported-css-features'>CSS features and rules</NavLink>
         <NavLink href='/webpack'>Webpack</NavLink>
-        <NavLink href='/preprocessors'>SASS and Preprocessors</NavLink>
+        <NavLink href='/sass-preprocessors'>SASS and Preprocessors</NavLink>
       </div>
       <NavLink href='/examples'>Examples</NavLink>
     </nav>

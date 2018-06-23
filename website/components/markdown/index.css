@@ -31,7 +31,9 @@
   display: block;
   width: 100%;
   box-sizing: border-box;
-  padding: calc($MarkdownCodeSpacing * 4);
+  padding: 0;
+  border: calc($MarkdownCodeSpacing * 4) solid $MarkdownCodeBackgroundColor;
+  overflow-x: auto;
 }
 
 .inlineCodeBlock {
