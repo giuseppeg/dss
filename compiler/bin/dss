@@ -4,6 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const glob = require('glob')
 const dss = require('..')
+const optimizer = require('../processor').optimizer
 
 const read = filePath => fs.readFileSync(filePath, 'utf-8')
 
@@ -26,7 +27,13 @@ Promise.all(compilePromises).then(results => {
     flush = _flush
   })
 
-  fs.writeFileSync(path.resolve(path.join(dist, bundleFilename || 'index.css')), flush())
+  const css = flush()
+  const destPath = path.resolve(path.join(dist, bundleFilename || 'index.css'))
+  optimizer(css, { from: 'dss files', to: destPath })
+    .then(result => {
+      fs.writeFileSync(destPath, result.css)
+    })
+    .catch(e => { throw e })
 }).catch(e => {
   console.error(e)
   process.exit(1)

@@ -11,3 +11,12 @@ const processor = postcss([
   nestPseudoPlugin,
 ])
 module.exports = (css, opts = { from: undefined }) => processor.process(css, opts)
+
+const optimizer = require('postcss')([
+  require('postcss-discard-duplicates'),
+  require('autoprefixer'),
+  require('./plugins/sort-at-rules'),
+])
+
+module.exports.optimize = (css, opts = { from: undefined, to: undefined }) =>
+  optimizer.process(css, opts)

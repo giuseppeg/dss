@@ -1,3 +1,5 @@
+const optimizer = require('@dss/compiler/processor').optimizer
+
 let LastCallWebpackPlugin
 try {
   LastCallWebpackPlugin = require('last-call-webpack-plugin')
@@ -15,15 +17,9 @@ Please install last-call-webpack-plugin@^3.0.0 as devDependency.
   throw error
 }
 
-const postcss = require('postcss')([
-  require('postcss-discard-duplicates'),
-  require('autoprefixer'),
-  require('@dss/compiler/src/plugins/sort-at-rules')
-])
-
 function processor(assetName, asset) {
   const css = asset.source()
-  return postcss.process(css, { from: assetName, to: assetName }).then(result => result.css)
+  return optimizer(css, { from: assetName, to: assetName }).then(result => result.css)
 }
 
 class DSSPlugin extends LastCallWebpackPlugin {
