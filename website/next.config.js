@@ -1,4 +1,4 @@
-const withDSS = require('@dss/next-dss')
+const withDSS = require('dss-next-dss')
 const withMDX = require('@zeit/next-mdx')({
   extension: /\.mdx?$/,
   options: {

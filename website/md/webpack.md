@@ -16,7 +16,7 @@ For webpack 3 you might want to use `extract-text-webpack-plugin`
 const path = require('path')
 const HtmlwebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const DSSwebpackPlugin = require('@dss/webpack')
+const DSSwebpackPlugin = require('dss-webpack')
 
 const localIdentName =
   process.env.NODE_ENV === 'production' ? 'DSS-[hash:base32]' : '[name]-[local]--[hash:base32:5]'
@@ -70,7 +70,7 @@ For webpack 4 you might want to use `mini-css-extract-plugin`
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlwebpackPlugin = require('html-webpack-plugin')
-const DSSwebpackPlugin = require('@dss/webpack')
+const DSSwebpackPlugin = require('dss-webpack')
 
 const localIdentName =
   process.env.NODE_ENV === 'production' ? 'DSS-[hash:base32]' : '[name]-[local]--[hash:base32:5]'

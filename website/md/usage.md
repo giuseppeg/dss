@@ -108,7 +108,7 @@ npm i dss-next
 In `next.config.js`
 
 ```js
-const withDSS = require('@dss/next-dss')
+const withDSS = require('dss-next-dss')
 
 const localIdentName =
   process.env.NODE_ENV === 'production' ? 'DSS-[hash:base32]' : '[name]-[local]--[hash:base32:5]'

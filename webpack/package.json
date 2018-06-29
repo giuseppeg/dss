@@ -1,5 +1,5 @@
 {
-  "name": "@dss/webpack",
+  "name": "dss-webpack",
   "version": "0.1.0",
   "description": "Deterministic Style Sheets - webpack plugin and loader",
   "main": "index.js",
@@ -7,7 +7,7 @@
   "author": "Giuseppe Gurgone",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "@dss/compiler": "file:../compiler",
+    "dss-compiler": "file:../compiler",
     "loader-utils": "^1.1.0"
   },
   "peerDependencies": {

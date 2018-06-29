@@ -1,5 +1,5 @@
 {
-  "name": "@dss/classnames",
+  "name": "dss-classnames",
   "version": "0.1.0",
   "description": "Deterministic Style Sheets - classNames helper",
   "main": "index.js",

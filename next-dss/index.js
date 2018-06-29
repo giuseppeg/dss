@@ -1,4 +1,4 @@
-const DSSWebpackPlugin = require('@dss/webpack')
+const DSSWebpackPlugin = require('dss-webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const cssLoaderConfig = require('@zeit/next-css/css-loader-config')
 const commonsChunkConfig = require('@zeit/next-css/commons-chunk-config')

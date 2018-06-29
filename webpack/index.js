@@ -1,4 +1,4 @@
-const optimizer = require('@dss/compiler/processor').optimizer
+const optimizer = require('dss-compiler/processor').optimizer
 
 let LastCallWebpackPlugin
 try {
