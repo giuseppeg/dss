@@ -1,5 +1,5 @@
 const postcss = require('postcss')
-const selectorsPlugin = require('../src/plugins/selectors')
+const validatorPlugin = require('../src/plugins/validator')
 const sortAtRulesPlugin = require('../src/plugins/sort-at-rules')
 const processor = require('../src/processor')
 
@@ -104,7 +104,7 @@ describe('processor', () => {
   })
 
   describe('validation', () => {
-    const selectorsProcessor = css => postcss([selectorsPlugin]).process(css, { from: undefined })
+    const selectorsProcessor = css => postcss([validatorPlugin]).process(css, { from: undefined })
 
     describe('throws when it detecs duplicated selectors', async () => {
       it('simple', () =>
@@ -137,12 +137,33 @@ describe('processor', () => {
       ))
 
     it('throws when using pseudo-elements', () => {
-      expect.assertions(4)
+      expect.assertions(8)
       return Promise.all(
-        ['.a:before', '.a:after', '.a::before', '.a::after'].map(selector =>
+        [
+          '.a:before',
+          '.a:after',
+          '.a:first-line',
+          '.a:first-letter',
+          '.a::before',
+          '.a::after',
+          '.a::first-line',
+          '.a:first-letter',
+        ].map(selector =>
           expect(selectorsProcessor(`${selector} { color: red }`)).rejects.toThrow(
             /Detected pseudo-element/
           )
+        )
+      )
+    })
+
+    it('throws when using unsupported pseudo-classes', () => {
+      expect.assertions(6)
+      return Promise.all(
+        ['.a:matches(b)', '.a:has(b)', '.a:not(b)', '.a:lang(en)', '.a:any(b)', '.a:current'].map(
+          selector =>
+            expect(selectorsProcessor(`${selector} { color: red }`)).rejects.toThrow(
+              /Detected unsupported pseudo-class/
+            )
         )
       )
     })

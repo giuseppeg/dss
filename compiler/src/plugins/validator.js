@@ -1,6 +1,6 @@
 const postcss = require('postcss')
 
-module.exports = postcss.plugin('postcss-dss-selectors', () => {
+module.exports = postcss.plugin('postcss-dss-validator', () => {
   return root => {
     const processed = {}
     root.walkRules(rule => {
@@ -21,11 +21,18 @@ module.exports = postcss.plugin('postcss-dss-selectors', () => {
           `Invalid selector: ${selector}. Selectors cannot be grouped.`
         )
       }
-      if (/::?(after|before)/.test(selector)) {
+      if (/::?(after|before|first-letter|first-line)/.test(selector)) {
         throw rule.error(
           `Detected pseudo-element: '${selector}'. Pseudo-elements are not supported. Please use regular elements.`
         )
       }
+
+      if (/:(matches|has|not|lang|any|current)/.test(selector)) {
+        throw rule.error(
+          `Detected unsupported pseudo-class: '${selector}'.`
+        )
+      }
+
       const split = selector.split(/\s*[+>~\s]\s*/g)
 
       switch (split.length) {
