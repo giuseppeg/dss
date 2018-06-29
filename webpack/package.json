@@ -1,6 +1,6 @@
 {
   "name": "dss-webpack",
-  "version": "0.1.0",
+  "version": "0.1.0-beta.0",
   "description": "Deterministic Style Sheets - webpack plugin and loader",
   "main": "index.js",
   "keywords": [],

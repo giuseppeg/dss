@@ -3391,13 +3391,13 @@ dot-prop@^4.1.0:
     is-obj "^1.0.0"
 
 "dss-classnames@file:classnames":
-  version "0.1.0"
+  version "0.1.0-beta.0"
 
 "dss-compiler@file:.":
-  version "0.1.0"
+  version "0.1.0-beta.0"
 
 "dss-compiler@file:compiler":
-  version "0.1.0"
+  version "0.1.0-beta.0"
   dependencies:
     autoprefixer "^8.6.4"
     glob "^7.1.2"
@@ -3408,7 +3408,7 @@ dot-prop@^4.1.0:
     postcss-nest-atrules "0.1.3"
 
 "dss-next-dss@file:next-dss":
-  version "0.1.0"
+  version "0.1.0-beta.0"
   dependencies:
     "@zeit/next-css" "^0.2.0"
     dss-webpack "file:../../../Library/Caches/Yarn/v1/webpack"
@@ -3417,7 +3417,7 @@ dot-prop@^4.1.0:
     last-call-webpack-plugin "^2.1.2"
 
 "dss-webpack@file:webpack":
-  version "0.1.0"
+  version "0.1.0-beta.0"
   dependencies:
     dss-compiler "file:../../../Library/Caches/Yarn/v1/compiler"
     loader-utils "^1.1.0"
@@ -5231,7 +5231,7 @@ inquirer@^5.2.0:
     strip-ansi "^4.0.0"
     through "^2.3.6"
 
-insert-css@tomekwi/insert-css#680e16ed19f2ee05af528d1b1012d1aa43f6ac49:
+"insert-css@github:tomekwi/insert-css#680e16ed19f2ee05af528d1b1012d1aa43f6ac49":
   version "0.2.0"
   resolved "https://codeload.github.com/tomekwi/insert-css/tar.gz/680e16ed19f2ee05af528d1b1012d1aa43f6ac49"
 
