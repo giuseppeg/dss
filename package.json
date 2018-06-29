@@ -16,7 +16,7 @@
   "scripts": {
     "test": "xo && cd compiler && npm test",
     "lint": "xo",
-    "format": "prettier --single-quote --trailing-comma --no-semi --write all {src,test,*}/**/*.js",
+    "format": "prettier --single-quote --trailing-comma=es5 --no-semi --write all {src,test,*}/**/*.js",
     "clean": "rm -rf node_modules **/node_modules **/**/node_modules **/dist **/**/dist website/.next website/out"
   },
   "devDependencies": {

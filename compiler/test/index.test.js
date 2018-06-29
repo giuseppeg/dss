@@ -85,7 +85,9 @@ describe('dss', () => {
         src: url(http://b.ar)
       }
       .a {
-        transition: fade 0.5s easy-out;
+        transition-property: fade;
+        transition-timing-function: ease-out;
+        transition-duration: 0.5s;
       }
       @keyframes some {0% { opacity:0 } 100% { opacity:1}}
       @keyframes fade {0% { opacity:0 } 100% { opacity:1}}

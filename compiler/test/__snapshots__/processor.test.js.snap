@@ -58,7 +58,7 @@ exports[`processor merges rules 1`] = `
 
       .block {
         display: block;
-        margin: 10px;
+        margin-top: 10px;
       }
 
       .root {

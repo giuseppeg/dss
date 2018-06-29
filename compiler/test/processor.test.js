@@ -74,7 +74,7 @@ describe('processor', () => {
 
       .block {
         display: block;
-        margin: 10px;
+        margin-top: 10px;
       }
 
       @media (min-width: 600px) {
@@ -201,6 +201,18 @@ describe('processor', () => {
       expect.assertions(1)
       expect(processor('@keyframes fade {0% { opacity:0 } 100% { opacity:1}}')).resolves.toEqual(
         expect.objectContaining({ css: '@keyframes fade {0% { opacity:0 } 100% { opacity:1}}' })
+      )
+    })
+
+    it('throws an error when using a shorthand property', async () => {
+      expect(selectorsProcessor(`.a { background: red }`)).rejects.toThrow(
+        /support shorthand properties/
+      )
+    })
+
+    it('throws an error when using !important', async () => {
+      expect(selectorsProcessor(`.a { color: red ! important }`)).rejects.toThrow(
+        /!important is not allowed/
       )
     })
   })

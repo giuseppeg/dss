@@ -58,7 +58,9 @@ exports[`dss compiles fallbacks 2`] = `
 exports[`dss compiles keyframes 1`] = `
 Object {
   "a": Array [
-    "dss_8obr3c-13wqbd",
+    "dss_1q9w8i1-4hi1ll",
+    "dss_1ot5qnt-ykz8s4",
+    "dss_rwa454-yobcwj",
   ],
 }
 `;
@@ -70,7 +72,9 @@ exports[`dss compiles keyframes 2`] = `
         src: url(http://b.ar)
       }
       .a {
-        transition: fade 0.5s easy-out;
+        transition-property: fade;
+        transition-timing-function: ease-out;
+        transition-duration: 0.5s;
       }
       @keyframes some {0% { opacity:0 } 100% { opacity:1}}
       @keyframes fade {0% { opacity:0 } 100% { opacity:1}}
@@ -82,7 +86,7 @@ exports[`dss compiles keyframes 2`] = `
 
 ⬇⬇⬇⬇
 
-.dss_8obr3c-13wqbd{transition:fade 0.5s easy-out}@font-face{font-family:'foo';src:url(http://b.ar)}@keyframes fade{0%{opacity:0;margin-left:0}100%{opacity:1;margin-left:100}}@keyframes fade{0%{opacity:0}100%{opacity:1}}@keyframes some{0%{opacity:0}100%{opacity:1}}"
+.dss_1ot5qnt-ykz8s4{transition-timing-function:ease-out}.dss_1q9w8i1-4hi1ll{transition-property:fade}.dss_rwa454-yobcwj{transition-duration:0.5s}@font-face{font-family:'foo';src:url(http://b.ar)}@keyframes fade{0%{opacity:0;margin-left:0}100%{opacity:1;margin-left:100}}@keyframes fade{0%{opacity:0}100%{opacity:1}}@keyframes some{0%{opacity:0}100%{opacity:1}}"
 `;
 
 exports[`dss does not have duplicates 1`] = `
