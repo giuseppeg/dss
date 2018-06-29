@@ -20,8 +20,14 @@
   font-size: $MarkdownCodeFontSize;
   color: $MarkdownCodeColor;
   background-color: $MarkdownCodeBackgroundColor;
-  padding: 2px calc($MarkdownCodeSpacing * 2);
-  border-radius: $MarkdownCodeBorderRadius;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: calc($MarkdownCodeSpacing * 2);
+  padding-right: calc($MarkdownCodeSpacing * 2);
+  border-top-left-radius: $MarkdownCodeBorderRadius;
+  border-top-right-radius: $MarkdownCodeBorderRadius;
+  border-bottom-right-radius: $MarkdownCodeBorderRadius;
+  border-bottom-left-radius: $MarkdownCodeBorderRadius;
   line-height: 1.4;
   margin-top: 1px;
   margin-bottom: 1px;
@@ -31,8 +37,13 @@
   display: block;
   width: 100%;
   box-sizing: border-box;
-  padding: 0;
-  border: calc($MarkdownCodeSpacing * 4) solid $MarkdownCodeBackgroundColor;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border-width: calc($MarkdownCodeSpacing * 4);
+  border-style: solid;
+  border-color: $MarkdownCodeBackgroundColor;
   overflow-x: auto;
 }
 
@@ -43,6 +54,6 @@
 .ul {
   font-family: $MarkdownULFontFamily;
   font-size: $MarkdownULFontSize;
-  list-style: $MarkdownULListStyle;
+  list-style-type: $MarkdownULListStyle;
   line-height: 1.5;
 }

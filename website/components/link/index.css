@@ -2,7 +2,7 @@
   color: $LinkColor;
   font-family: $LinkFontFamily;
   font-size: $LinkFontSize;
-  text-decoration: none;
+  text-decoration-line: none;
   font-weight: bold;
 }
 

@@ -1,7 +1,7 @@
 const postcss = require('postcss')
 
 const shortHandProperties = [
-  'animation', 'background', 'border', 'border-bottom', 'border-color', 'border-left', 'border-radius', 'border-right', 'border-style', 'border-top', 'border-width', 'column-rule', 'columns', 'flex', 'flex-flow', 'font', 'grid', 'grid-area', 'grid-column', 'grid-row', 'grid-template', 'list-style', 'margin', 'offset', 'outline', 'overflow', 'padding', 'place-content', 'place-items', 'place-self', 'text-decoration', 'transition',
+  'animation', 'background', 'border', 'border-bottom', 'border-left', 'border-radius', 'border-right', 'border-top', 'column-rule', 'columns', 'flex', 'flex-flow', 'font', 'grid', 'grid-area', 'grid-column', 'grid-row', 'grid-template', 'list-style', 'margin', 'offset', 'outline', 'overflow', 'padding', 'place-content', 'place-items', 'place-self', 'text-decoration', 'transition',
 ]
 
 function error(node, message) {
@@ -82,8 +82,8 @@ module.exports = postcss.plugin('postcss-dss-validator', () => {
     root.walkDecls(decl => {
       if (shortHandProperties.includes(decl.prop)) {
         error(decl,
-          'DSS does\'t support shorthand properties at the moment. This CSS feature will likely be supported in the future. Please expand your shorthand properties for now.' +
-          `\n Can't remember what is the long form for ${decl.prop}? Ask Google 👉  https://google.com/search?q=${encodeURIComponent(`css ${decl.prop} properties`)}`
+          '`' + decl.prop + '`: DSS does\'t support shorthand properties at the moment. This CSS feature will likely be supported in the future. Please expand your shorthand properties for now.' +
+          `\n Can't remember what is the long form for \`${decl.prop}\`? Ask Google 👉  https://google.com/search?q=${encodeURIComponent(`css ${decl.prop} properties`)}`
         )
       }
 

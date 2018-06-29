@@ -4,19 +4,28 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  background: none;
+  background-color: transparent;
+  background-image: none;
   line-height: 0;
   color: currentColor;
   border-width: 2px;
   border-style: solid;
   border-color: transparent;
-  border-radius: $NavigationButtonBorderRadius;
-  padding: 2px;
-  outline: none;
+  border-top-left-radius: $NavigationButtonBorderRadius;
+  border-top-right-radius: $NavigationButtonBorderRadius;
+  border-bottom-right-radius: $NavigationButtonBorderRadius;
+  border-bottom-left-radius: $NavigationButtonBorderRadius;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  outline-style: none;
   width: $NavigationButtonSize;
   height: $NavigationButtonSize;
   user-select: none;
-  transition: border ease 0.2s
+  transition-property: border;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
 }
 
 .button:active,
@@ -46,19 +55,26 @@
 .menuOpen {
   display: block;
   position: relative;
-  animation: menuFade 0.3s ease-in, menuSlide 0.2s ease-in;
+  animation-name: menuFade, menuSlide;
+  animation-duration: 0.3s, 0.2s;
+  animation-timing-function: ease-in, ease-in;
 }
 
 .section {
   display: block;
   margin-top: $u-spacing4;
-  padding: 0 $u-spacing4;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: $u-spacing4;
+  padding-right: $u-spacing4;
   color: currentColor;
   border-left-width: 2px;
   border-left-style: solid;
   border-left-color: transparent;
-  transition: border-color ease-out 0.3s;
-  outline: none;
+  transition-property: border-color;
+  transition-timing-function: ease-out;
+  transition-duration: 0.3s;
+  outline-style: none;
   font-weight: normal;
   margin-left: 2px;
 }

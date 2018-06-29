@@ -5231,7 +5231,7 @@ inquirer@^5.2.0:
     strip-ansi "^4.0.0"
     through "^2.3.6"
 
-"insert-css@github:tomekwi/insert-css#680e16ed19f2ee05af528d1b1012d1aa43f6ac49":
+insert-css@tomekwi/insert-css#680e16ed19f2ee05af528d1b1012d1aa43f6ac49:
   version "0.2.0"
   resolved "https://codeload.github.com/tomekwi/insert-css/tar.gz/680e16ed19f2ee05af528d1b1012d1aa43f6ac49"
 
