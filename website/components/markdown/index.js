@@ -3,7 +3,7 @@ import Link from '../link'
 import styles from './index.css'
 
 const headings = [1, 2, 3, 4, 5, 6].reduce((components, level) => {
-  components[`h${level}`] = props => <Heading {...props} level={level} />
+  components[`h${level}`] = props => <Heading {...props} level={level} size={level} />
   return components
 }, {})
 

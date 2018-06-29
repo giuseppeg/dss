@@ -4,6 +4,12 @@ DSS (_Deterministic StyleSheets_) is a component-oriented CSS authoring system t
 
 DSS works like CSS Modules except that styles resolution is deterministic, CSS is compiled to atomic classes and the final bundle is very small.
 
+## Determinism? how?
+
+DSS supports [a subset of CSS](/supported-css-features) that can be compiled to atomic CSS classes. Once we have atomic classes we can merge them in application order using a simple [classnames helper function](/classnames-helper).
+
+Read more about [how it works](/how-it-works).
+
 ## Features
 
 * ⚡️ Automatic compilation to Atomic CSS classes and high-performance stylesheets

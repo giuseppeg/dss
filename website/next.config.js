@@ -3,6 +3,7 @@ const withMDX = require('@zeit/next-mdx')({
   extension: /\.mdx?$/,
   options: {
     mdPlugins: [
+      require('remark-slug'),
       require('remark-autolink-headings')
     ]
   }

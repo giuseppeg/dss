@@ -6,7 +6,7 @@ Generally DSS allows **single class selectors** however there are some exception
 
 Below is a comprehensive list of features:
 
-### Supported
+## Supported
 
 * Class selectors: `.foo`
 * CSS states: `:hover`, `:active`, `:focus`, `:visited`, `:focus-within`, `:checked`, `:disabled`, `:required` etc.
@@ -14,7 +14,7 @@ Below is a comprehensive list of features:
 * State-combinator-selector like `:hover > .foo` or `:focus + .bar`
 * `:nth-child`, `:first-child` etc.
 
-### Not supported
+## Not supported
 
 * Element, id, universal and attribute selectors
 * Descendants selectors `.foo .bar`

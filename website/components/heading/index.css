@@ -10,6 +10,7 @@
 
 .content {
   display: block;
+  margin-top: 2em;
 }
 
 .link {
@@ -18,6 +19,7 @@
 
 .size1 {
   font-size: $u-fontSize1;
+  margin-top: 0;
 }
 
 .size2 {
