@@ -19,12 +19,12 @@ const compilePromises = jsSheets.map(filePath => {
 
 Promise.all(compilePromises).then(results => {
   let flush
-  results.forEach(({locals, _flush}, i) => {
+  results.forEach((result, i) => {
     fs.writeFileSync(
       path.resolve(path.join(dist, path.basename(jsSheets[i])+'.json')),
-      JSON.stringify(locals, null, 2)
+      JSON.stringify(result.locals, null, 2)
     )
-    flush = _flush
+    flush = result.flush
   })
 
   const css = flush()
