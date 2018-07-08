@@ -14,7 +14,7 @@
   ],
   "keywords": [],
   "author": "Giuseppe Gurgone",
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "scripts": {
     "test": "jest --coverage && npm run test:browser",
     "test:browser": "run-p --race test:browser:server test:browser:run",

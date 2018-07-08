@@ -5,7 +5,7 @@
   "main": "index.js",
   "keywords": [],
   "author": "Giuseppe Gurgone",
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "dependencies": {
     "dss-compiler": "file:../compiler",
     "loader-utils": "^1.1.0"

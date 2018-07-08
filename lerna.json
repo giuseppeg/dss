@@ -1,10 +1,10 @@
 {
   "lerna": "2.11.0",
   "packages": [
-    "packages/classnames",
-    "packages/compiler",
-    "packages/next-dss",
-    "packages/webpack"
+    "classnames",
+    "compiler",
+    "next-dss",
+    "webpack"
   ],
   "version": "independent",
   "command": {

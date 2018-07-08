@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "dependencies": {
     "dss-classnames": "file:../../classnames"
   },

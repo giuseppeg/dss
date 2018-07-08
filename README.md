@@ -1,12 +1,18 @@
-# Deterministic Style Sheets
+<img width="32" alt="screen shot 2018-07-08 at 5 45 52 pm" src="https://user-images.githubusercontent.com/711311/42420995-f0441c16-82d6-11e8-984d-2a194d1fe570.png"  role="presentation" />
+
+# Deterministic Style Sheets ✨
 
 [![Build Status](https://travis-ci.org/giuseppeg/dss.svg?branch=master)](https://travis-ci.org/giuseppeg/dss)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-[warning] The code in this repo is a Proof of Concept for an idea that is still at the validation stage. Feedbacks are welcome -> [@giuseppegurgone](https://twitter.com/giuseppegurgone)
+DSS (Deterministic StyleSheets) is a component-oriented CSS authoring system that compiles to high-performance atomic CSS classes-based stylesheets.
 
-DSS is like Cascading Style Sheets but as the name suggests styles resolution is deterministic.
+DSS works like CSS Modules except that styles resolution is deterministic, CSS is compiled to atomic classes and the final bundle is very small.
+
+Read more about how it works on the [website](https://giuseppeg.github.io/dss/).
+
+[**warning, this is an experimental project and might not be production ready**]
 
 The repo comes with `examples`:
 
@@ -17,126 +23,34 @@ npm install
 npm start
 ```
 
-You can also see the [example on gh-pages](https://giuseppeg.github.io/dss).
+## Features
 
-Basically when applying classes the application order matters and styles resolve in order. So:
+* ⚡️ Automatic compilation to Atomic CSS classes and high-performance stylesheets
+* 🆎 Deterministic styles resolution: styles are always resolved in application order
+* 📦 Scoped Styles
+* 🌎 Framework and language agnostic
+* 🤝 Preprocessors friendly
+* 💻 Standalone CLI and support for Webpack 3 and 4 with automatic vendor prefixing
+* ✂️ CSS the Best Parts
 
-```js
-document.body.innerHTML = `
- <p class="${classNames(a.root, b.root)}">hello</p> <!-- green -->
- <p class="${classNames(b.root, a.root)}">hello</p> <!-- red -->
-`
-```
+## Contributing
 
-Where `a` and `b` are the JSON representations of the ~C~DSS files below:
+DSS is developed as a monorepo thanks to lerna and yarn workspaces. Everything you need to know is in this repository.
 
-```css
-/* File a.css */
+Since this is a side project and I don't want to burn out, I decided to disable the GitHub issues.
 
-.root {
-  color: red;
-}
-```
+### Bugs
 
-and
+If you find a bug please submit a pull request with a failing test or a fix, and good description for the issue.
 
-```css
-/* File b.css */
+### Features request
 
-.root {
-  color: green;
-}
-```
+Please submit a pull request with an RFC where you explain the why and the how you think this feature is useful. I'd be glad to start a conversation from there before moving on to implementation. Also please let me know if you would be up to implement the feature you are suggesting.
 
-[`classNames`](./classnames.js) is a simple function that applies the tokens (class names) in a deterministic way.
+### My code is crap
 
-The concept is similar to CSS Modules and most importantly **is language agnostic (it is not CSS-in-JS)** i.e. you write DSS in `.css` files, compile them and then you can consume the styles in any language (Ruby, PHP, Python etc) that implements the super simple `classNames` helper.
+I know, it is a side project and I didn't sweat the details. I am more than happy to discuss about a complete rewrite if the project becomes popular.
 
-## Determinism? how?
+## LICENSE
 
-In order to guarantee determinism we need to restrict the language features.
-
-- Only single classname selectors are allowed:
-
-```css
-/* allowed */
-.root {
-  color: red;
-}
-
-/* not allowed */
-div { color: red; }
-.root .test { color: hotpink; }
-.root > .test { color: hotpink; }
-```
-
-- No pseudo-elements (for that you can use regular elements):
-
-```css
-/* Nein! (not allowed) */
-.root:after { color: red; }
-```
-
-- Pseudo-classes and at rules (like media queries) are supported but the rules above apply:
-
-```css
-/* perfectly fine */
-.root {
-  color: red;
-}
-
-@media screen and (min-width: 3em) {
-  .root {
-    color: green;
-  }
-}
-```
-
-- Styles are atomic by default
-
-- (Not implemented yet) precise style property resolution i.e. `marginTop` is more specific than `margin`
-
-Most of these ideas come from React Native (for Web). Props to the React Native folks and Nicolas Gallagher. See [this link](https://github.com/necolas/react-native-web/blob/master/website/guides/style.md#how-styles-are-resolved) for more info.
-
-When the builder receives a css file, it converts it to JS using postcss-js. The JS styles are validated and fixed if necessary and passed to the compiler which converts them to atomic css classes (under the hood I am using a fork of cxs which I modified to fit the needs of DSS).
-
-Given the following DSS:
-
-```css
-/* test.css */
-.root {
-  color: blue;
-  font-family: monospace;
-  font-size: 2em;
-}
-
-@media (max-width: 400px) {
-  .root {
-    color: hotpink;
-  }
-}
-
-@media (min-width: 600px) {
-  .root {
-    color: orange;
-  }
-}
-```
-
-The compiler returns:
-
-```json
-{
-  "root": [
-    "dss_rfc3hq-nfznl2",
-    "dss_1fqdzl4-tzko9j",
-    "dss_48uv78-1x4eueo",
-    "dss_fw0eqv-11z5xnj",
-    "dss_1n8q6hy-1ysx8fe"
-  ]
-}
-```
-
-Which can be written in `test.css.json`.
-
-Calling `compiler.css()` you can get the resulting CSS. When compiling multiple file you would write to disk the `json` files as you process the `.css` files and **only** at the end dump the `compiler.css()` string into a `bundle.css` file. This will contain the entire app CSS. Since we are using atomic classes its size should be small-ish (remember that with atomic css the file size growth is logarithmic)
+MIT

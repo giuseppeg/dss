@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+rm -rf out
+cd website &&
+yarn export &&
+touch out/.nojekyll &&
+touch out/CNAME &&
+echo "dss-lang.com" >> out/CNAME &&
+../node_modules/.bin/push-dir --dir=out --branch=gh-pages
