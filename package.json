@@ -17,10 +17,10 @@
     "test": "xo && cd compiler && npm test",
     "lint": "xo",
     "format": "prettier --single-quote --trailing-comma=es5 --no-semi --write all {src,test,*}/**/*.js",
-    "clean": "rm -rf node_modules **/node_modules **/**/node_modules **/dist **/**/dist website/.next website/out",
-    "prepare-release": "node scripts/prepare-release"
+    "clean": "rm -rf node_modules **/node_modules **/**/node_modules **/dist **/**/dist website/.next website/out"
   },
   "devDependencies": {
+    "lerna": "2.11.0",
     "prettier": "^1.11.1",
     "xo": "^0.20.3"
   },

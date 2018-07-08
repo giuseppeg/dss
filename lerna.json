@@ -1,0 +1,17 @@
+{
+  "lerna": "2.11.0",
+  "packages": [
+    "packages/classnames",
+    "packages/compiler",
+    "packages/next-dss",
+    "packages/webpack"
+  ],
+  "version": "independent",
+  "command": {
+    "init": {
+      "exact": true
+    }
+  },
+  "npmClient": "yarn",
+  "useWorkspaces": true
+}
