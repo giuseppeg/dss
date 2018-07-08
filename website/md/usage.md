@@ -1,12 +1,12 @@
 # Usage 🔋
 
-To its core DSS is a simple compiler that takes [regular CSS files](./supported-css-features) and generates atomic CSS classes.
+To its core DSS is a simple compiler that takes [regular CSS files](/supported-css-features) and generates atomic CSS classes.
 
 ## Pre-requisites
 
 The compiler is written in JavaScript and therefore you will need [Node.js](https://nodejs.org) v7.6+ installed on your machine.
 
-Please read the [how it works](./how-it-works) page before you continue.
+Please read the [how it works](/how-it-works) page before you continue.
 
 ## dss-compiler
 
