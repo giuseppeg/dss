@@ -15,11 +15,7 @@ export default class App extends DefaultApp {
   }
 
   render() {
-    const {
-      Component,
-      pageProps,
-      router: { route },
-    } = this.props
+    const { Component, pageProps, router: { route } } = this.props
     const meta = Component.meta || {}
 
     return (
