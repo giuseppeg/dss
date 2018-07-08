@@ -35,10 +35,17 @@ if (args.help) {
     programName + ' ./src/**/*.css ./build --bundleName bundle.css --outType js',
     ''
   ].join('\n\n'))
-  process.exit(0)
+  process.exit(args._.length != 2 ? 1 : 0)
 }
 
-process.exit(0)
+const [globPattern, dist] = args._
+
+const jsSheets = glob.sync(globPattern)
+
+if (jsSheets.length === 0) {
+  console.error('DSS: the glob ' + globPattern + ' did not match any files.')
+  process.exit(1)
+}
 
 const [globPattern, dist] = args._
 
@@ -69,6 +76,6 @@ Promise.all(compilePromises).then(results => {
     })
     .catch(e => { throw e })
 }).catch(e => {
-  console.error(e)
+  console.error(e.reason ? `Error in: ${e.file}\n\n${e.reason}` : e)
   process.exit(1)
 })

@@ -3602,9 +3602,6 @@ dot-prop@^4.1.0:
 "dss-classnames@file:classnames":
   version "0.1.0-beta.0"
 
-"dss-compiler@file:.":
-  version "0.1.0-beta.0"
-
 "dss-compiler@file:compiler":
   version "0.1.0-beta.0"
   dependencies:
