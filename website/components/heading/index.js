@@ -14,12 +14,15 @@ const Wrap = ({children, className, href, target}) => {
   return <Link href={href} className={className} target={target}>{children}</Link>
 }
 
-export default ({children, className = defaultClassName, level = 1, size = 1, href = null, target = '_self'}) => {
+export default ({children, className = defaultClassName, level = 1, size = 1, href = null, target = '_self', autolink = true}) => {
   const Tag = `h${level}`
+  if (!href && autolink && level > 1) {
+    href = '#' + children.toLowerCase().replace(/[^a-z]/g, '-')
+  }
   return (
     <Wrap href={href} target={target} className={className.link}>
       <Tag className={[styles.tag, href && styles.link, ...className.tag]}>
-        <span className={[styles.content, styles[`size${size}`], ...className.content]}>{children}</span>
+        <span id={href && href.slice(1)} className={[styles.content, styles[`size${size}`], ...className.content]}>{children}</span>
       </Tag>
     </Wrap>
   )

@@ -11,6 +11,7 @@ export default class MyDocument extends Document {
 
           <style>{`* { box-sizing: border-box; }`}</style>
           <link rel="stylesheet" href="/_next/static/index.css" />
+          <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
 
           <meta
             name="description"
