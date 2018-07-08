@@ -4,7 +4,7 @@
 
 .block {
   display: block;
-  margin: 10px;
+  margin-top: 10px;
 }
 
 @media (min-width: 600px) {

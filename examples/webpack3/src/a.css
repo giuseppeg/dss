@@ -4,9 +4,9 @@
 
 .block {
   display: block;
-  margin: 10px;
+  margin-top: 10px;
   filter: blur(20px);
-  border-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 @media (min-width: 600px) {
