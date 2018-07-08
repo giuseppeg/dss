@@ -17,7 +17,8 @@
     "test": "xo && cd compiler && npm test",
     "lint": "xo",
     "format": "prettier --single-quote --trailing-comma=es5 --no-semi --write all {src,test,*}/**/*.js",
-    "clean": "rm -rf node_modules **/node_modules **/**/node_modules **/dist **/**/dist website/.next website/out"
+    "clean": "rm -rf node_modules **/node_modules **/**/node_modules **/dist **/**/dist website/.next website/out",
+    "prepare-release": "node scripts/prepare-release"
   },
   "devDependencies": {
     "prettier": "^1.11.1",
@@ -28,7 +29,9 @@
       "node",
       "browser"
     ],
-    "extends": ["prettier"],
+    "extends": [
+      "prettier"
+    ],
     "ignores": [
       "compiler/src/vendor",
       "examples",

@@ -3400,6 +3400,7 @@ dot-prop@^4.1.0:
   version "0.1.0-beta.0"
   dependencies:
     autoprefixer "^8.6.4"
+    getopts "^2.0.6"
     glob "^7.1.2"
     just-flatten-it "^2.0.0"
     postcss "^6.0.17"
