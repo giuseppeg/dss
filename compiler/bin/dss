@@ -47,10 +47,6 @@ if (jsSheets.length === 0) {
   process.exit(1)
 }
 
-const [globPattern, dist] = args._
-
-const jsSheets = glob.sync(globPattern)
-
 const compilePromises = jsSheets.map(filePath => {
   const css = read(filePath)
   return dss.singleton(css, { filePath, readableClass: process.env.NODE_ENV !== 'production' })
