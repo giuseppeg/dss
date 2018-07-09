@@ -1,6 +1,8 @@
 {
   "color": {
     "White": "#fff",
+    "Gray": "#fafafa",
+    "Gray3": "#f4f4f4",
     "Black": "#000",
     "Black1": "#111",
     "Black2": "#222",

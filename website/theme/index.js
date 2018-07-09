@@ -3,8 +3,8 @@ const { borderRadius, color, fontFamily, fontSize, spacing } = require('./variab
 
 const theme = {
   Logo: {
-    Color: color.Blue,
-    Background: color.White,
+    Color: color.White,
+    Background: color.Blue,
     Size: fontSize[0],
   },
   Heading: {
@@ -26,15 +26,15 @@ const theme = {
     Size: fontSize[1],
   },
   SideBar: {
-    BackgroundColor: color.Blue,
-    StateBackgroundColor: color.Blue2,
-    Color: color.White,
+    BackgroundColor: color.Gray,
+    StateBackgroundColor: color.Gray3,
+    Color: color.Blue1,
     Spacing: spacing[1],
     // LogoSize - NavigationButtonSize
     NavigationSpacing: fontSize[0] - fontSize[1],
   },
   Main: {
-    BackgroundColor: color.Blue,
+    BackgroundColor: color.Gray,
     ContentBackgroundColor: color.White,
     Color: color.Blue1,
     Spacing: spacing[0],
