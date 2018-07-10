@@ -1,12 +1,6 @@
-const withDSS = require('dss-next-dss')
+const withDSS = require('next-dss')
 const withMDX = require('@zeit/next-mdx')({
-  extension: /\.mdx?$/,
-  options: {
-    mdPlugins: [
-      require('remark-slug'),
-      require('remark-autolink-headings')
-    ]
-  }
+  extension: /\.mdx?$/
 })
 
 const localIdentName =

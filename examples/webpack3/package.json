@@ -11,10 +11,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "dss-classnames": "file:../../classnames"
+    "dss-classnames": "0.1.0-beta.0"
   },
   "devDependencies": {
-    "dss-webpack": "file:../../webpack",
+    "dss-webpack": "0.1.0-beta.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^2.0.0",
     "webpack": "^3.0.0",

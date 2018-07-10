@@ -10,10 +10,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "dss-classnames": "file:../../classnames"
+    "dss-classnames": "0.1.0-beta.0"
   },
   "devDependencies": {
-    "dss-compiler": "file:../../",
+    "dss-compiler": "0.1.0-beta.0",
     "serve": "^6.4.9"
   }
 }

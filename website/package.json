@@ -12,8 +12,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "dss-classnames": "file:../classnames",
-    "next-dss": "file:../next-dss",
+    "dss-classnames": "0.1.0-beta.0",
+    "next-dss": "0.1.0-beta.0",
     "@mdx-js/mdx": "^0.8.0",
     "@zeit/next-mdx": "^1.1.0",
     "next": "^6.0.0",
