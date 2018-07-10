@@ -2,12 +2,26 @@
   "name": "next-dss",
   "version": "0.1.0-beta.0",
   "main": "index.js",
+  "keywords": [
+    "dss",
+    "atomic css",
+    "css in js",
+    "css",
+    "classes",
+    "css modules",
+    "sass",
+    "postcss",
+    "classnames",
+    "react",
+    "next plugin",
+    "next.js"
+  ],
   "license": "MIT",
   "dependencies": {
-    "dss-webpack": "file:../webpack",
-    "@zeit/next-css": "^0.2.0",
-    "escape-string-regexp": "^1.0.5",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "last-call-webpack-plugin": "^2.1.2"
+    "dss-webpack": "0.1.0-beta.0",
+    "@zeit/next-css": "0.2.0",
+    "escape-string-regexp": "1.0.5",
+    "extract-text-webpack-plugin": "3.0.2",
+    "last-call-webpack-plugin": "2.1.2"
   }
 }

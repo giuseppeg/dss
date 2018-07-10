@@ -3,7 +3,17 @@
   "version": "0.1.0-beta.0",
   "description": "Deterministic Style Sheets - classNames helper",
   "main": "index.js",
-  "keywords": [],
+  "keywords": [
+    "dss",
+    "atomic css",
+    "css in js",
+    "css",
+    "classes",
+    "css modules",
+    "sass",
+    "postcss",
+    "classnames"
+  ],
   "author": "Giuseppe Gurgone",
   "license": "MIT"
 }

@@ -3,12 +3,24 @@
   "version": "0.1.0-beta.0",
   "description": "Deterministic Style Sheets - webpack plugin and loader",
   "main": "index.js",
-  "keywords": [],
+  "keywords": [
+    "dss",
+    "atomic css",
+    "css in js",
+    "css",
+    "classes",
+    "css modules",
+    "sass",
+    "postcss",
+    "classnames",
+    "webpack",
+    "react"
+  ],
   "author": "Giuseppe Gurgone",
   "license": "MIT",
   "dependencies": {
-    "dss-compiler": "file:../compiler",
-    "loader-utils": "^1.1.0"
+    "dss-compiler": "0.1.0-beta.0",
+    "loader-utils": "1.1.0"
   },
   "peerDependencies": {
     "last-call-webpack-plugin": "^2.0.0 || ^3.0.0"

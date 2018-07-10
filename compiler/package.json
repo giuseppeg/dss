@@ -7,12 +7,24 @@
     "dss": "bin/dss"
   },
   "files": [
+    "bin",
     "src",
     "index.js",
+    "processor.js",
     "LICENSE",
     "README.md"
   ],
-  "keywords": [],
+  "keywords": [
+    "dss",
+    "atomic css",
+    "css in js",
+    "css",
+    "classes",
+    "css modules",
+    "sass",
+    "postcss",
+    "classnames"
+  ],
   "author": "Giuseppe Gurgone",
   "license": "MIT",
   "scripts": {
@@ -23,18 +35,18 @@
     "jest": "jest"
   },
   "dependencies": {
-    "autoprefixer": "^8.6.4",
-    "getopts": "^2.0.6",
-    "glob": "^7.1.2",
-    "just-flatten-it": "^2.0.0",
-    "postcss": "^6.0.17",
-    "postcss-discard-duplicates": "^2.1.0",
-    "postcss-js": "^1.0.1",
+    "autoprefixer": "8.6.4",
+    "getopts": "2.0.6",
+    "glob": "7.1.2",
+    "just-flatten-it": "2.0.0",
+    "postcss": "6.0.17",
+    "postcss-discard-duplicates": "2.1.0",
+    "postcss-js": "1.0.1",
     "postcss-nest-atrules": "0.1.3"
   },
   "devDependencies": {
     "browserify": "^16.1.1",
-    "dss-classnames": "file:../classnames",
+    "dss-classnames": "0.1.0-beta.0",
     "jest": "^22.4.3",
     "npm-run-all": "^4.1.2",
     "tape": "^4.9.0",
