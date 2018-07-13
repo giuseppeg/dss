@@ -7,10 +7,10 @@ DSS (_Deterministic StyleSheets_) is a component-oriented CSS authoring system t
 DSS works like CSS Modules except that supports [a subset of CSS](/supported-css-features) that can be compiled to atomic CSS classes. Thanks to atomic CSS classes styles can be resolved in a deterministic way based on their application order:
 
 ```html
-<!-- green -->
+<!-- the text will be green -->
 <div class="red green">hello</div>
 
-<!-- red -->
+<!-- the text will be red -->
 <div class="green red">hello</div>
 ```
 
@@ -58,10 +58,10 @@ Given two class names that set the `color` to `red` and `green`:
 when applied to an element one class wins over the other depending on the order in which the classes are applied:
 
 ```html
-<!-- green -->
+<!-- the text will be green -->
 <div class="foo bar">hello</div>
 
-<!-- red -->
+<!-- the text will be red -->
 <div class="bar foo">hello</div>
 ```
 
