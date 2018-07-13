@@ -3,42 +3,124 @@
 <script src="https://unpkg.com/codemirror@5.39.0/lib/codemirror.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/codemirror@5.39.0/lib/codemirror.css">
 <style>
+* { box-sizing: border-box; }
+body { margin: 0; font-family: monospace; }
+.Playground {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh
+}
+.Playground-editors {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Playground-editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  color: #1e3e83;
+  background-color: #eff4ff;
+  padding: 1em;
+  padding-top: 2.4em;
+  border-radius: 4px;
+  margin-top: 1em;
+  position: relative;
+}
+
+.Playground-editor textarea {
+  all: inherit;
+  border: 0;
+  padding: 0;
+  width: 100%;
+  flex: 1;
+}
+
+.Playground-result:before,
+.Playground-editor[data-lang]:before {
+  content: attr(data-lang);
+  position: absolute;
+  padding: 0.2em;
+  background-color: white;
+  top: 0;
+  left: 1em;
+}
+
+.Playground-editor[data-lang="js"] textarea {
+  margin-top: 1em;
+}
+
+.Playground-result {
+  position: relative;
+  margin-top: 1em;
+  padding-top: 1.4em
+}
+
+.Playground-result:before {
+  background-color: #eff4ff;
+}
+
+.Playground-result iframe {
+  border: 0;
+  display: block;
+  width: 100%;
+  background-color: white;
+}
+
+.Playground-run {
+  border: 0;
+  display: block;
+  width: 100%;
+  color: white;
+  background-color: #3467d6;
+  padding: 0.5em;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+@media (min-width: 840px) {
+  .Playground {
+    flex-direction: row;
+  }
+  .Playground-result {
+    margin-top: 2.8em;
+    flex: 1;
+  }
+}
 </style>
 
 <div class="Playground">
   <div class="Playground-editors">
     <button class="Playground-run">run</button>
-    <div class="Playground-css">
-      <div class="Playground-editor">
+    <div class="Playground-editor"  data-lang="css">
 <textarea>
 .red { color: red }
 .green { color: green }
 </textarea>
-      </div>
     </div>
-    <div class="Playground-js">
-      <div class="Playground-editor">
-        <div class="FakeImport">import classnames from 'dss-classnames'</div>
-        <div class="FakeImport">import styles from './styles.css'</div>
+    <div class="Playground-editor" data-lang="js">
+      <div class="FakeImport">import classnames from 'dss-classnames'</div>
+      <div class="FakeImport">import styles from './styles.css'</div>
 <textarea>
 // try to invert the order of the classes!
 
 document.body.innerHTML = `
-  <div class="${classnames(styles.red, styles.green)}">Hello from DSS!</div>
-  <div class="${classnames(styles.green, styles.red)}">Hello from DSS!</div>
+<div class="${classnames(styles.red, styles.green)}">Hello from DSS!</div>
+<div class="${classnames(styles.green, styles.red)}">Hello from DSS!</div>
 `
 </textarea>
-      </div>
     </div>
   </div>
-  <div class="Playground-result">
+  <div class="Playground-result" data-lang="result">
   </div>
 </div>
 
 <script>
   (function () {
-    const cssEditor = document.querySelector('.Playground-css textarea')
-    const jsEditor = document.querySelector('.Playground-js textarea')
+    const cssEditor = document.querySelector('.Playground-editor[data-lang="css"] textarea')
+    const jsEditor = document.querySelector('.Playground-editor[data-lang="js"] textarea')
     const result = document.querySelector('.Playground-result')
     document.querySelector('.Playground-run').addEventListener('click', run)
 
