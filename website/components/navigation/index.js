@@ -33,6 +33,7 @@ const Navigation = ({open, onPress, className = { button: null }}) => (
         <NavLink href='/sass-preprocessors'>SASS and Preprocessors</NavLink>
       </div>
       <NavLink href='/examples'>Examples</NavLink>
+      <NavLink href='/static/playground/index.html' target="_blank">Playground</NavLink>
     </nav>
   </React.Fragment>
 )

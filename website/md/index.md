@@ -1,3 +1,5 @@
+import Playground from '../components/playground'
+
 # DSS ✨
 
 DSS (_Deterministic StyleSheets_) is a component-oriented CSS authoring system that compiles to high-performance _atomic CSS classes_-based stylesheets.
@@ -19,6 +21,8 @@ Read more about [how it works](/how-it-works).
 * 🤝 Preprocessors friendly
 * 💻 Standalone CLI and support for Webpack 3 and 4 with automatic vendor prefixing
 * ✂️ CSS the Best Parts
+
+<Playground />
 
 ## How it works
 

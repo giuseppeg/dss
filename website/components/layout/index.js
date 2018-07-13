@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Logo from '../logo'
 import Heading from '../heading'
 import Navigation from '../navigation'
+import Playground from '../playground'
 import { LogoColor, LogoBackground } from '../../theme'
 
 export default class Layout extends React.Component {
@@ -60,7 +61,10 @@ export default class Layout extends React.Component {
             </div>
           </div>
           <main className={[styles.main]}>
-            <div className={[styles.mainContent]}>{ children }</div>
+            <div className={[styles.mainContent]}>
+              { children }
+              <div style={{ marginTop: '2rem' }}><Playground /></div>
+            </div>
           </main>
         </div>
       </React.Fragment>

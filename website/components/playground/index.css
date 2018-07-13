@@ -1,0 +1,61 @@
+.container {
+  padding-top: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $u-colorBlue;
+  border-top-left-radius: $u-borderRadius5;
+  border-top-right-radius: $u-borderRadius5;
+  border-bottom-right-radius: $u-borderRadius5;
+  border-bottom-left-radius: $u-borderRadius5;
+}
+
+.iframeWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 60%;
+  display: block;
+}
+
+.iframe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+}
+
+.button {
+  background-color: $u-colorBlue;
+  color: $u-colorWhite;
+  font-family: $u-fontFamilyBase;
+  font-size: 1em;
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-top-left-radius: $u-borderRadius5;
+  border-top-right-radius: $u-borderRadius5;
+  border-bottom-right-radius: $u-borderRadius5;
+  border-bottom-left-radius: $u-borderRadius5;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 1em;
+  padding-left: 1em;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.link {
+  display: block;
+  margin-bottom: 1em;
+}
