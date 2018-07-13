@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<title></title>
+<script src="https://unpkg.com/codemirror@5.39.0/lib/codemirror.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/codemirror@5.39.0/lib/codemirror.css">
+<style>
+</style>
+
+<div class="Playground">
+  <div class="Playground-editors">
+    <button class="Playground-run">run</button>
+    <div class="Playground-css">
+      <div class="Playground-editor">
+<textarea>
+.red { color: red }
+.green { color: green }
+</textarea>
+      </div>
+    </div>
+    <div class="Playground-js">
+      <div class="Playground-editor">
+        <div class="FakeImport">import classnames from 'dss-classnames'</div>
+        <div class="FakeImport">import styles from './styles.css'</div>
+<textarea>
+// try to invert the order of the classes!
+
+document.body.innerHTML = `
+  <div class="${classnames(styles.red, styles.green)}">Hello from DSS!</div>
+  <div class="${classnames(styles.green, styles.red)}">Hello from DSS!</div>
+`
+</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="Playground-result">
+  </div>
+</div>
+
+<script>
+  (function () {
+    const cssEditor = document.querySelector('.Playground-css textarea')
+    const jsEditor = document.querySelector('.Playground-js textarea')
+    const result = document.querySelector('.Playground-result')
+    document.querySelector('.Playground-run').addEventListener('click', run)
+
+    function run() {
+      const resultIframe = document.createElement('iframe')
+      result.innerHTML = ''
+      result.appendChild(resultIframe)
+
+      getCSS()
+        .then(dss => {
+          const resultDocument = resultIframe.contentDocument
+          resultDocument.open()
+          resultDocument.write(
+            getHTML(getJS(), dss)
+          )
+          resultDocument.close()
+        })
+    }
+    run()
+
+    function getHTML(js, dss) {
+      console.log(dss)
+      return `
+        <!doctype html>
+        <script src="https://unpkg.com/dss-classnames@0.1.0-beta.0/index.js"><\/script>
+        <style>${dss.css}</style>
+        <script>
+          window.addEventListener('load', function () {
+            ${dss.error
+              ? `document.body.innerHTML = '<div class="error">Error: ${JSON.stringify(dss.error)}</div>'`
+              : `(new Function(${JSON.stringify(`const styles = ${JSON.stringify(dss.locals)};` + js)})())`
+            }
+          })
+        <\/script>
+      `
+    }
+    function getJS() {
+      return jsEditor.value
+    }
+    function getCSS() {
+      const src = cssEditor.value.trim()
+      if (!src) {
+        return Promise.resolve({
+          css: '',
+          locals: {},
+          error: 'Your CSS is an empty string.'
+        })
+      }
+      return fetch('https://HummingWellinformedLevel--five-nine.repl.co', {
+        method: 'post',
+        body: src,
+      }).then(r => {
+        if (r.status !== 200 && r.status !== 304) {
+          return Promise.reject(
+            `An error occurred while processing your styles. ${r.status} ${r.statusText}`
+          )
+        }
+        return r.json()
+      }).catch(e => {
+        return {
+          css: '',
+          locals: {},
+          error: e.message,
+        }
+      })
+    }
+  }())
+</script>
