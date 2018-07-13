@@ -26,18 +26,6 @@ DSS works like CSS Modules except that supports [a subset of CSS](/supported-css
 * 💻 Standalone CLI and support for Webpack 3 and 4 with automatic vendor prefixing
 * ✂️ CSS the Best Parts
 
-## What people say about DSS
-
-*"yep, definitely thinking in the same direction there"*<br/>
-– Chris Eppstein (on DSS and CSS Blocks), creator of Compass, CSS Blocks and core team SASS.
-
-
-*"I think you're onto something big here"*<br/>
-– Phil Plückthun, core team styled-components.
-
-*"I'd pay for some kind of library that allows me to give specificity to my classes based on the order they get applied to a component"*<br/>
-– Federico Zivolo, author of Popper.js and the popular Bootstrap Material Design theme.
-
 ## How it works
 
 Thanks to the DSS compiler and a simple `classNames` helper, DSS styles are resolved in deterministic way that respects the application order.
