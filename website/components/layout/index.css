@@ -41,6 +41,10 @@
   margin-right: 0;
 }
 
+.playground {
+  margin-top: $u-spacing1;
+}
+
 .main {
   flex-basis: 0%;
   flex-grow: 1;
@@ -60,6 +64,11 @@
   padding-right: $MainSpacing;
 }
 
+.starOnGithub {
+  width: 140px;
+  height: 20px;
+}
+
 @media (min-width: 680px) {
   .container {
     flex-wrap: nowrap;
@@ -75,9 +84,16 @@
 
 @media (min-width: 1025px) {
   .mainContent {
+    position: relative;
     padding-top: calc($LogoSize + $SideBarSpacing * 2);
     padding-bottom: calc($LogoSize + $SideBarSpacing * 2);
     padding-left: calc(($LogoSize + $SideBarSpacing * 2) * 0.9);
     padding-right: calc(($LogoSize + $SideBarSpacing * 2) * 0.9);
+  }
+
+  .starOnGithub {
+    position: absolute;
+    top: $SideBarSpacing;
+    left: 50%;
   }
 }

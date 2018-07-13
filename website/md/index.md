@@ -4,13 +4,17 @@ import Playground from '../components/playground'
 
 DSS (_Deterministic StyleSheets_) is a component-oriented CSS authoring system that compiles to high-performance _atomic CSS classes_-based stylesheets.
 
-DSS works like CSS Modules except that styles resolution is deterministic, CSS is compiled to atomic classes and the final bundle is very small.
+DSS works like CSS Modules except that supports [a subset of CSS](/supported-css-features) that can be compiled to atomic CSS classes. Thanks to atomic CSS classes styles can be resolved in a deterministic way based on their application order:
 
-## Determinism? how?
+```html
+<!-- green -->
+<div class="red green">hello</div>
 
-DSS supports [a subset of CSS](/supported-css-features) that can be compiled to atomic CSS classes. Once we have atomic classes we can merge them in application order using a simple [classnames helper function](/classnames-helper).
+<!-- red -->
+<div class="green red">hello</div>
+```
 
-Read more about [how it works](/how-it-works).
+<Playground />
 
 ## Features
 
@@ -22,7 +26,17 @@ Read more about [how it works](/how-it-works).
 * 💻 Standalone CLI and support for Webpack 3 and 4 with automatic vendor prefixing
 * ✂️ CSS the Best Parts
 
-<Playground />
+## What people say about DSS
+
+*"yep, definitely thinking in the same direction there"*<br/>
+– Chris Eppstein (on DSS and CSS Blocks), creator of Compass, CSS Blocks and core team SASS.
+
+
+*"I think you're onto something big here"*<br/>
+– Phil Plückthun, core team styled-components.
+
+*"I'd pay for some kind of library that allows me to give specificity to my classes based on the order they get applied to a component"*<br/>
+– Federico Zivolo, author of Popper.js and the popular Bootstrap Material Design theme.
 
 ## How it works
 
@@ -52,5 +66,7 @@ when applied to an element one class wins over the other depending on the order 
 ```
 
 Such a feature makes it possible to tell with **confidence** which rules apply or overrule others at any given point in time.
+
+Read more about [how it works](/how-it-works).
 
 This website is styled with DSS and its source code is available on [GitHub](https://github.com/giuseppeg/dss/tree/master/website). We also have a handful of [examples](https://github.com/giuseppeg/dss/tree/master/examples).

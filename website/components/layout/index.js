@@ -62,8 +62,14 @@ export default class Layout extends React.Component {
           </div>
           <main className={[styles.main]}>
             <div className={[styles.mainContent]}>
+              <iframe
+                className={[styles.starOnGithub]}
+                src="https://ghbtns.com/github-btn.html?user=giuseppeg&repo=dss&type=star&count=true"
+                frameBorder="0"
+                scrolling="0"
+              />
               { children }
-              <div style={{ marginTop: '2rem' }}><Playground /></div>
+              <div className={[styles.playground]}><Playground /></div>
             </div>
           </main>
         </div>
