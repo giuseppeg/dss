@@ -17,6 +17,8 @@ Please install last-call-webpack-plugin@^3.0.0 as devDependency.
   throw error
 }
 
+const PHASES = "PHASE" in LastCallWebpackPlugin ? "PHASE" : "PHASES";
+
 function processor(assetName, asset) {
   const css = asset.source()
   return optimizer(css, { from: assetName, to: assetName }).then(result => result.css)
@@ -27,12 +29,12 @@ class DSSPlugin extends LastCallWebpackPlugin {
     super({
       assetProcessors: [
         {
-          phase: LastCallWebpackPlugin.PHASE.OPTIMIZE_ASSETS,
+          phase: LastCallWebpackPlugin[PHASES].OPTIMIZE_ASSETS,
           regExp: options.test || /\.css$/g,
           processor
         },
         {
-          phase: LastCallWebpackPlugin.PHASE.OPTIMIZE_CHUNK_ASSETS,
+          phase: LastCallWebpackPlugin[PHASES].OPTIMIZE_CHUNK_ASSETS,
           regExp: options.test || /\.css$/g,
           processor
         }
