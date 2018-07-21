@@ -1,6 +1,6 @@
 {
   "name": "atomic-css-stats",
-  "version": "0.1.0-beta.0",
+  "version": "0.1.0-beta.1",
   "description": "Provides information about regular and compiled to atomic CSS classes files size (gzipped)",
   "main": "index.js",
   "bin": {
