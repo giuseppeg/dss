@@ -1,0 +1,29 @@
+{
+  "name": "atomic-css-stats",
+  "version": "0.1.0-beta.0",
+  "description": "Provides information about regular and compiled to atomic CSS classes files size (gzipped)",
+  "main": "index.js",
+  "bin": {
+    "acss-stats": "cli.js"
+  },
+  "keywords": [
+    "dss",
+    "atomic css",
+    "css in js",
+    "css",
+    "classes",
+    "css modules",
+    "sass",
+    "postcss",
+    "classnames"
+  ],
+  "author": "Giuseppe Gurgone",
+  "license": "MIT",
+  "dependencies": {
+    "filesize": "^3.6.1",
+    "gzip-size": "^5.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "murmurhash": "^0.0.2",
+    "postcss": "^7.0.1"
+  }
+}
