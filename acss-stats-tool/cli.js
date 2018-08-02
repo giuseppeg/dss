@@ -42,10 +42,11 @@ const resources = [...process.argv.slice(2)]
 
 Size: ${stats.original.size}
 Gzipped size: ${stats.original.gzipSize}
+Brotli size: ${stats.original.brotliSize}
 
 Atomized size: ${stats.atomic.size}
 Gzipped atomized size: ${stats.atomic.gzipSize}
-
+Brotli atomized size: ${stats.atomic.brotliSize}
 `)
   })
 }());

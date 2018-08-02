@@ -1,26 +1,25 @@
 const filesize = require('filesize')
 const gzipSize = require('gzip-size')
+const brotliSize = require('brotli-size')
 const mrmuh = require('murmurhash')
 const hash = str => mrmuh(str, str.length).toString(36)
 const postcss = require('postcss')
 
 exports = module.exports = async function getStats(content) {
   const originalSize = filesize(content.length)
-  const originalGzippedSize = filesize(gzipSize.sync(content))
-
   const atomizedContent = await atomizer(content)
 
-  const atomicSize = filesize(atomizedContent.length)
-  const atomicGzippedSize = filesize(gzipSize.sync(atomizedContent))
 
   return {
     original: {
-      size: originalSize,
-      gzipSize: originalGzippedSize,
+      size: filesize(content.length),
+      gzipSize: filesize(gzipSize.sync(content)),
+      brotliSize:filesize(brotliSize.sync(content))
     },
     atomic: {
-      size: atomicSize,
-      gzipSize: atomicGzippedSize,
+      size: atomizedContent.length,
+      gzipSize: filesize(gzipSize.sync(atomizedContent)),
+      brotliSize: filesize(brotliSize.sync(atomizedContent)),
     }
   }
 }
