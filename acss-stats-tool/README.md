@@ -1,6 +1,6 @@
 # atomic-css-stats
 
-Provides stats on `.css` files size (gzipped). Also compiles the styles to atomic CSS classes for compariaon.
+Provides stats on `.css` files size (gzipped and brotli). Also compiles the styles to atomic CSS classes for compariaon.
 
 ```
 npm i -g atomic-css-stats
@@ -15,17 +15,19 @@ acss-stats ./file.css https://example.com/bundle.css [...]
 example:
 
 ```
-$ acss-stats https://abs.twimg.com/a/1531883619/css/t1/twitter_core.bundle.css
+$ acss-stats https://abs.twimg.com/a/1532484778/css/t1/twitter_core.bundle.css
 
  ==============
-|| https://abs.twimg.com/a/1531883619/css/t1/twitter_core.bundle.css
+|| https://abs.twimg.com/a/1532484778/css/t1/twitter_core.bundle.css
  ==============
 
-Size: 182.34 KB
-Gzipped size: 34.01 KB
+Size: 182.72 KB
+Gzipped size: 34.08 KB
+Brotli size: 28.95 KB
 
-Atomized size: 60 KB
-Gzipped atomized size: 15.46 KB
+Atomized size: 61494
+Gzipped atomized size: 15.48 KB
+Brotli atomized size: 12.83 KB
 ```
 
 
