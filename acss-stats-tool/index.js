@@ -17,7 +17,7 @@ exports = module.exports = async function getStats(content) {
       brotliSize:filesize(brotliSize.sync(content))
     },
     atomic: {
-      size: atomizedContent.length,
+      size: filesize(atomizedContent.length),
       gzipSize: filesize(gzipSize.sync(atomizedContent)),
       brotliSize: filesize(brotliSize.sync(atomizedContent)),
     }

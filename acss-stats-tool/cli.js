@@ -37,16 +37,22 @@ const resources = [...process.argv.slice(2)]
     console.log(
 `
  ==============
-|| ${resource}
+| ${resource}
  ==============
+
+Original file:
 
 Size: ${stats.original.size}
 Gzipped size: ${stats.original.gzipSize}
 Brotli size: ${stats.original.brotliSize}
 
-Atomized size: ${stats.atomic.size}
-Gzipped atomized size: ${stats.atomic.gzipSize}
-Brotli atomized size: ${stats.atomic.brotliSize}
+---
+
+Compiled to atomic CSS classes:
+
+Size: ${stats.atomic.size}
+Gzipped size: ${stats.atomic.gzipSize}
+Brotli size: ${stats.atomic.brotliSize}
 `)
   })
 }());

@@ -17,17 +17,23 @@ example:
 ```
 $ acss-stats https://abs.twimg.com/a/1532484778/css/t1/twitter_core.bundle.css
 
+  ==============
+| https://abs.twimg.com/a/1532484778/css/t1/twitter_core.bundle.css
  ==============
-|| https://abs.twimg.com/a/1532484778/css/t1/twitter_core.bundle.css
- ==============
+
+Original file:
 
 Size: 182.72 KB
 Gzipped size: 34.08 KB
 Brotli size: 28.95 KB
 
-Atomized size: 61494
-Gzipped atomized size: 15.48 KB
-Brotli atomized size: 12.83 KB
+---
+
+Compiled to atomic CSS classes:
+
+Size: 60.05 KB
+Gzipped size: 15.48 KB
+Brotli size: 12.83 KB
 ```
 
 
