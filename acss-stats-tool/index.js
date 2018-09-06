@@ -2,11 +2,12 @@ const filesize = require('filesize')
 const gzipSize = require('gzip-size')
 const brotliSize = require('brotli-size')
 const mrmuh = require('murmurhash')
+
 const hash = str => mrmuh(str, str.length).toString(36)
 const postcss = require('postcss')
 
-exports = module.exports = async function getStats(content) {
-  const originalSize = filesize(content.length)
+exports = module.exports = async function getStats(content) { /* eslint func-names: ["error", "always"] */ /* eslint-disable-line no-multi-assign */
+  // const originalSize = filesize(content.length)
   const atomizedContent = await atomizer(content)
 
 
@@ -42,6 +43,6 @@ async function atomizer(src) {
     }
   }
 
-  return await postcss(plugin()).process(src, { from: undefined }).then(() => css)
+  return postcss(plugin()).process(src, { from: undefined }).then(() => css)
 }
 

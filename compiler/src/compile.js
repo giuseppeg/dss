@@ -24,7 +24,7 @@ const combinatorOrPure = (className, child) => {
   return className + noAnd(child)
 }
 
-const className = (sheetId, key, val, child, media) => {
+const className = (sheetId, key, val, child, media) => { /* eslint max-params: ["error", 6] */
   const _key = key + val + child + media
   const cached = cache[_key]
   if (cached) {

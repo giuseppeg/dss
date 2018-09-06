@@ -40,7 +40,8 @@
     ],
     "rules": {
       "capitalized-comments": 0,
-      "unicorn/import-index": 0
+      "unicorn/import-index": 0,
+      "import/no-unresolved": "off"
     },
     "globals": [
       "describe",

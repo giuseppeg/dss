@@ -25,8 +25,8 @@ const resources = [...process.argv.slice(2)]
       process.exit(1)
     }
 
-    const content = await read(resource)
-    const s = await getStats(content)
+    const content = await read(resource) /* eslint-disable-line no-await-in-loop */
+    const s = await getStats(content) /* eslint-disable-line no-await-in-loop */
     stats.push({
       resource,
       stats: s,
