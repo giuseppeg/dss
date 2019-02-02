@@ -36,7 +36,7 @@ const createDss = (singleton = false) => async (css, options = {}) => {
   }
 
   const sheetId = String(singleton ? 0 : uuid++)
-  const result = await processor(css, { from: opts.filePath })
+  const result = await processor(css, { from: opts.filePath }, sheetId)
   const locals = compile(objectify(result.root), {
     makeReadableClass,
     sheetId,

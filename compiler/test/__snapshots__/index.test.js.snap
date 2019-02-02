@@ -101,3 +101,5 @@ Object {
 `;
 
 exports[`dss does not have duplicates 2`] = `".dss_14e3233-hlr2nt{display:block}"`;
+
+exports[`dss renames keyframes 1`] = `".dss_dlk2yv-1p44r6d{animation-name:qf3vqk}@keyframes qf3vqk{0%{opacity:0}100%{opacity:1}}.dss_dlk2yv-2tyosx{animation-name:f0s44}@keyframes f0s44{0%{opacity:0;margin-left:0}100%{opacity:1;margin-left:100}}"`;
