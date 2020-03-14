@@ -101,4 +101,25 @@ describe('dss', () => {
     expect(locals).toMatchSnapshot()
     expect(src + '\n\n⬇⬇⬇⬇\n\n' + flush()).toMatchSnapshot()
   })
+
+  it('renames keyframes', async () => {
+    const a = await dss(`
+      .a {
+        animation-name: fade;
+      }
+      @keyframes fade {0% { opacity:0 } 100% { opacity:1}}
+    `)
+    const b = await dss(`
+      .b {
+        animation-name: fade;
+      }
+      @keyframes fade {
+        0% { opacity:0; margin-left: 0; }
+        100% { opacity:1; margin-left: 100; }
+      }
+    `)
+
+    expect(a.locals.a).not.toEqual(b.locals.b)
+    expect(a.flush() + b.flush()).toMatchSnapshot()
+  })
 })
